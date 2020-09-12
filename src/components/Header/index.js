@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Row, Col, Layout } from 'antd'
+import { Row} from 'antd'
 
-const { Header, Footer, Content } = Layout
 
 export const StdHeader = styled(Row)`
   text-align: center;
@@ -22,6 +21,7 @@ export const HeaderButtom = styled(Link)`
   
 
   font-size: .8rem;
+  font-weight: 300;
   width: inherit;
   text-align: center;
   text-transform: uppercase;

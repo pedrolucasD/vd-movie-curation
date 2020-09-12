@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { Row, Col, Layout } from 'antd'
+import { Row} from 'antd'
 
-const { Header, Footer, Content } = Layout
 
 export const StdFooter = styled(Row)`
   bottom: 0;

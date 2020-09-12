@@ -13,6 +13,7 @@ export const IconButton = styled.button`
   background-color: #FFF;
   
   text-transform: uppercase;
+  font-weight: 400;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -33,6 +34,7 @@ export const Button = styled.button`
   background-color: #FFF;
   
   text-transform: uppercase;
+  font-weight: 400;
   align-items: center;
   display: flex;
   flex-direction: row;

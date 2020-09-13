@@ -2,16 +2,10 @@ import React from 'react'
 import { Main, MainContent} from './styles'
 import { StdHeader, HeaderButtom } from '../Header'
 import LogoVD from '../../assets/img/logo-viva-decora.png'
-
-
 import { Col } from 'antd'
 
 
-
 const PageDefault = ({children}) => {
-
-
-
   return(
     <Main>
       <div className="background"/>
@@ -37,7 +31,6 @@ const PageDefault = ({children}) => {
           </HeaderButtom>
         </Col>
       </StdHeader>
-
       <MainContent style={{padding: '2rem'}}>
         {children}
       </MainContent>

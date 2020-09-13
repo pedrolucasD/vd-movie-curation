@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import api from '../../services/api'
 import PageDefault from '../../components/PageDefault'
+import LikeIcon from '../../assets/icons/curti.png'
+import DislikeIcon from '../../assets/icons/n-curti.png'
+import EmptyMovieOrImage from '../../assets/img/video-camera-vazio.png'
 import { MainCard } from '../../components/MainCard'
 import { Container, ImageBG } from '../../components/Container'
 import { StdFooter } from '../../components/Footer'
 import { IconButton, Button } from '../../components/Button'
-import LikeIcon from '../../assets/icons/curti.png'
-import DislikeIcon from '../../assets/icons/n-curti.png'
 import { MovieOverview, MovieTitle, MovieDetails } from '../../components/MainCard/components/MovieOverview'
-import EmptyMovieOrImage from '../../assets/img/video-camera-vazio.png'
 import { Row, Col } from 'antd'
 import { getMovieRate } from '../../components/Rate/index'
 
@@ -17,16 +17,19 @@ const apiKey = '?api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 const UnratedMovies = () => {
   
   const [movieNumber, setMovieNumber] = useState(2)
-  const [movie, setMovie] = useState([])
-
+  
   useEffect(() => {
     loadMovie(movieNumber)
   }, [movieNumber])
-
-
-  async function loadMovie(movie){
-    const response = await api.get('/'+movie+apiKey)
-    console.log(response)
+  
+  const [movie, setMovie] = useState([])
+  const [likes, setLikes] = useState([])
+  const [dislikes, setDislikes] = useState([])
+  const imgBg = movie.backdrop_path
+  const imgPoster = movie.poster_path
+  
+  async function loadMovie(movieNumber){
+    const response = await api.get('/'+movieNumber+apiKey)
     setMovie(response.data)
   }
 
@@ -34,7 +37,7 @@ const UnratedMovies = () => {
     let number = movieNumber + 1
     setMovieNumber(number)
   }
-
+  
   function getMovieTime(movieTime){
     const durationTime = new Date('2020-01-01 00:00:00')
     const hours = new Date(durationTime.setMinutes(durationTime.getMinutes() + (movieTime)))
@@ -69,8 +72,40 @@ const UnratedMovies = () => {
     }
   }
 
-  const imgBg = movie.backdrop_path
-  const imgPoster = movie.poster_path
+  function likeMovie(){
+    const getMovieJson = {
+      id: movie.imdb_id,
+      title: movie.title,
+      release_date: movie.release_date,
+      genres: movie.genres,
+      runtime: movie.runtime,
+      vote_average: movie.vote_average,
+      tagline: movie.tagline,
+      overview: movie.overview,
+      backdrop_path: movie.backdrop_path,
+      poster_path: movie.poster_path
+    }
+    setLikes([...likes, getMovieJson])
+    nextMovie()
+  }
+
+  function dislikeMovie(){
+    const getMovieJson = {
+      id: movie.imdb_id,
+      title: movie.title,
+      release_date: movie.release_date,
+      genres: movie.genres,
+      runtime: movie.runtime,
+      vote_average: movie.vote_average,
+      tagline: movie.tagline,
+      overview: movie.overview,
+      backdrop_path: movie.backdrop_path,
+      poster_path: movie.poster_path
+    }
+    setDislikes([...dislikes, getMovieJson])
+    nextMovie()
+  }
+
   
   return(
     <Container>
@@ -116,19 +151,18 @@ const UnratedMovies = () => {
                 </a>
               </Col>
             </MovieDetails>
-              
           </MovieOverview>
         </MainCard>
       </PageDefault>
       <StdFooter>
-        <IconButton>
+        <IconButton onClick={() => dislikeMovie()}>
           <img src={DislikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '6%'}}/>
           Não curti!
         </IconButton>
         <Button onClick={() => nextMovie()}>
           Pular
         </Button>
-        <IconButton style={{color: '#ff5656'}}>
+        <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie()}>
           <img src={LikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '-6%'}}/>
           Curti!
         </IconButton>

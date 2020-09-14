@@ -3,16 +3,11 @@ import { Row} from 'antd'
 
 
 export const StdFooter = styled(Row)`
+  padding: 1rem;
   bottom: 0;
-  text-align: center;
-  padding: 2rem;
-  position: fixed;
-
   width: 100%;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
+  position: absolute;
+  background-color: #363636;
+  height: 5%;
+  border-top: 0.0625rem solid #fff;
 `

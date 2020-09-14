@@ -4,11 +4,12 @@ export const IconButton = styled.button`
   border: none;
   cursor: pointer;
   outline: inherit;
-  
+
+  margin: 0 1rem;  
   text-align: center;
-  min-height: 2rem;
+  height: 4rem;
   border-radius: 4rem;
-  min-width: 10rem;
+  min-width: 12rem;
   width: fit-content;
   background-color: #FFF;
   
@@ -17,7 +18,6 @@ export const IconButton = styled.button`
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin: 0 1rem;
   padding: 1rem;
   justify-content: center;
 ` 
@@ -26,11 +26,12 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   outline: inherit;
-  
+
+  margin: 0 1rem;    
   text-align: center;
-  min-height: 2rem;
+  height: 4rem;
   border-radius: 4rem;
-  width: fit-content;
+  min-width: fit-content;
   background-color: #FFF;
   
   text-transform: uppercase;
@@ -38,6 +39,5 @@ export const Button = styled.button`
   align-items: center;
   display: flex;
   flex-direction: row;
-  margin: 0 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
 ` 

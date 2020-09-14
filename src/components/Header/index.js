@@ -4,8 +4,13 @@ import { Row} from 'antd'
 
 
 export const StdHeader = styled(Row)`
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   text-align: center;
-  padding: 1.5rem;
+  height: 15%;
 
 `
 
@@ -18,6 +23,7 @@ export const HeaderButtom = styled(Link)`
 	cursor: pointer;
   outline: inherit;
   text-decoration: none;
+  margin: 0 2rem;
   
 
   font-size: .8rem;

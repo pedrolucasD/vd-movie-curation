@@ -13,6 +13,7 @@ export const MovieOverview = styled.div`
 `
 
 export const MovieTitle = styled.h1`
+  text-align: left;
   font-size: 2rem;
   font-weight: 900;
   color: #fff;
@@ -21,6 +22,7 @@ export const MovieTitle = styled.h1`
 `
 
 export const MovieDetails = styled(Row)`
+  text-align: left;
   height: 2rem;
   text-shadow: 0px 0px .2rem black;
 `

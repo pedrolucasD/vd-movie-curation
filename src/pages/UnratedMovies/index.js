@@ -4,8 +4,7 @@ import PageDefault from '../../components/PageDefault'
 import LikeIcon from '../../assets/icons/curti.png'
 import DislikeIcon from '../../assets/icons/n-curti.png'
 import { MainCard } from '../../components/MainCard'
-import { Container, ImageBG } from '../../components/Container'
-import { StdFooter } from '../../components/Footer'
+import { ImageBG, ImageFilter } from '../../components/Container'
 import { IconButton, Button } from '../../components/Button'
 import { MovieOverview, MovieTitle, MovieDetails } from '../../components/MainCard/components/MovieOverview'
 import { Row, Col } from 'antd'
@@ -105,66 +104,79 @@ const UnratedMovies = () => {
   }
 
   return(
-    <Container>
+    <>
+      <ImageFilter />
       <ImageBG srcImg={imgBg} />
-      <PageDefault>
-        <MainCard srcImg={imgPoster}>
-          <MovieOverview>
-            <Row align="middle">
-              <Col span={18}>
-                <MovieDetails align="middle" style={{marginBottom: '1rem'}}>
-                  <Col>
-                    <MovieTitle>
-                      {
-                        getMovieTitle(movie.title)
-                      }
-                    </MovieTitle>
-                  </Col>
-                </MovieDetails>
-                <MovieDetails align="middle">
-                  <Col span={18} style={{textTransform: 'uppercase'}}>
-                    { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
-                    { getGenres(movie.genres) }&nbsp;•&nbsp;
-                    { getMovieTime(movie.runtime) }
-                  </Col>
-                </MovieDetails>
-              </Col>
-              <Col span={6}>
-                <MovieDetails align="middle" style={{float: 'right', marginBottom: '-.2rem', marginRight: '-.3rem'}}>
-                  {getMovieRate(movie.vote_average)}
-                </MovieDetails>
-                <MovieDetails align="middle" style={{float: 'right', fontSize: '.7rem', marginTop: '-.2rem'}}>
-                  {'(' + movie.vote_count + ' avaliações' +')'}
-                </MovieDetails>
-              </Col>
-            </Row>
-            <MovieDetails align="middle" >
-              <Col span={21}>
-                { getMovieTagline(movie.tagline === "" ? movie.overview : movie.tagline) }
-              </Col>
-              <Col span={3}>
-                <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}}>
-                  Ver Sinopse
-                </a>
-              </Col>
-            </MovieDetails>
-          </MovieOverview>
-        </MainCard>
+      <PageDefault align="middle" justify="space-around">
+        <Col>
+          <Row align="middle" justify="space-around" style={{width: '100%'}}>
+            <Col>
+              <MainCard srcImg={imgPoster} style={{margin: '1rem'}}>
+                <MovieOverview>
+                  <Row align="middle">
+                    <Col span={18}>
+                      <MovieDetails align="middle" style={{marginBottom: '1rem'}}>
+                        <Col>
+                          <MovieTitle>
+                            {
+                              getMovieTitle(movie.title)
+                            }
+                          </MovieTitle>
+                        </Col>
+                      </MovieDetails>
+                      <MovieDetails align="middle">
+                        <Col span={18} style={{textTransform: 'uppercase'}}>
+                          { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
+                          { getGenres(movie.genres) }&nbsp;•&nbsp;
+                          { getMovieTime(movie.runtime) }
+                        </Col>
+                      </MovieDetails>
+                    </Col>
+                    <Col span={6}>
+                      <MovieDetails align="middle" style={{float: 'right', marginBottom: '-.2rem', marginRight: '-.3rem'}}>
+                        {getMovieRate(movie.vote_average)}
+                      </MovieDetails>
+                      <MovieDetails align="middle" style={{float: 'right', fontSize: '.7rem', marginTop: '-.2rem'}}>
+                        {'(' + movie.vote_count + ' avaliações' +')'}
+                      </MovieDetails>
+                    </Col>
+                  </Row>
+                  <MovieDetails align="middle" >
+                    <Col span={21}>
+                      { getMovieTagline(movie.tagline === "" ? movie.overview : movie.tagline) }
+                    </Col>
+                    <Col span={3}>
+                      <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}}>
+                        Ver Sinopse
+                      </a>
+                    </Col>
+                  </MovieDetails>
+                </MovieOverview>
+              </MainCard>
+            </Col>
+          </Row>
+          <Row justify="space-around" style={{width: '100%', justifyContent: 'center', margin: '1rem 0'}}>
+            <Col>
+              <IconButton onClick={() => dislikeMovie()}>
+                <img src={DislikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '6%'}}/>
+                Não curti!
+              </IconButton>
+            </Col>
+            <Col>
+              <Button onClick={() => nextMovie()}>
+                Pular
+              </Button>
+            </Col>
+            <Col>
+              <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie()}>
+                <img src={LikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '-6%'}}/>
+                Curti!
+              </IconButton>
+            </Col>
+          </Row>
+        </Col>
       </PageDefault>
-      <Row style={{textAlign: 'center'}}>
-        <IconButton onClick={() => dislikeMovie()}>
-          <img src={DislikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '6%'}}/>
-          Não curti!
-        </IconButton>
-        <Button onClick={() => nextMovie()}>
-          Pular
-        </Button>
-        <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie()}>
-          <img src={LikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '-6%'}}/>
-          Curti!
-        </IconButton>
-      </Row>      
-    </Container>
+    </>     
   )
 }
 

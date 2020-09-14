@@ -1,11 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PageDefault from '../../components/PageDefault'
+import { ImageFilter } from '../../components/Container'
 
 const DislikedMovies = () => {
   return(
-    <div>
-      <h1>Disliked Movies</h1>
-      <Link to="/">Home</Link>to </div>
+    <>
+      <ImageFilter />
+      <PageDefault>
+      </PageDefault>
+    </>
   )
 }
 

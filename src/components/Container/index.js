@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { Layout } from 'antd';
 const urlImgApi = 'https://image.tmdb.org/t/p/w500/'
 
-export const Container = styled(Layout.Content)`
+export const Container = styled.main`
   left: 0;
   top: 0;
   height: 100%;
@@ -11,7 +10,7 @@ export const Container = styled(Layout.Content)`
   align-items: center;
   display: flex;
   flex-direction: column;
-  
+  flex-wrap: wrap;
 `
 
 export const ImageFilter = styled.div`

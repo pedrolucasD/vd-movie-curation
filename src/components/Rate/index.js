@@ -1,10 +1,8 @@
 import React from 'react'
 import favorite from '../../assets/icons/favorite.png'
 import favorite_ from '../../assets/icons/favorite_.png'
-import { MovieDetails } from '../../components/MainCard/components/MovieOverview'
 
-
-export function getMovieRate(rate){
+export const MovieRate = (rate) => {
   const rateInt = rate -(rate%1)
   switch (rateInt) {
     case (1): 

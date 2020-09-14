@@ -1,47 +1,45 @@
 import React from 'react'
-import { Main, MainContent} from './styles'
-import { StdHeader, HeaderButtom } from '../Header'
+import { Body, Main, FooterIconDivider } from './styles'
+import { Header, Nav } from '../Header'
+import { Footer } from '../../components/Footer'
+import { HeaderButtom } from '../../components/Button'
+import { ImFacebook, ImInstagram, ImPinterest2 } from "react-icons/im";
+import { TiSocialGooglePlus  } from "react-icons/ti";
 import LogoVD from '../../assets/img/logo-viva-decora.png'
-import { Container } from '../../components/Container'
-import { StdFooter } from '../../components/Footer'
-import { Col, Row } from 'antd'
 
 
 const PageDefault = ({children}) => {
   return(
-    <Main>
-      <Container>
-        <StdHeader>
-          <Row align="middle" justify="space-around" style={{width: '100%'}}>
-            <Col style={{margin: '1.5rem'}}>
-              <img src={LogoVD} />
-            </Col>
-          </Row>
-          <Row align="middle" justify="space-around" style={{justifyContent: 'center', width: '100%'}}>
-            <Col>
-              <HeaderButtom to='/'>
-                Filmes não curados
-              </HeaderButtom>
-            </Col>
-            <Col>
-              <HeaderButtom to='/likes'>
-                Filmes curtidos
-              </HeaderButtom>
-            </Col>
-            <Col>
-              <HeaderButtom to='/dislikes'>
-                Filmes não curtidos
-              </HeaderButtom>
-            </Col>
-          </Row>
-        </StdHeader>
-        <Row style={{position: 'relative', height: '80%'}} align="middle">
-          {children}
-        </Row>
-      </Container>
-      <StdFooter>
-      </StdFooter> 
-    </Main>
+    <Body>
+      <Header>
+        <div style={{width: '100%', marginBottom: '1rem'}}>
+          <img src={LogoVD} />
+        </div>
+        <Nav>
+          <HeaderButtom to='/'>
+            Filmes não curados
+          </HeaderButtom>
+          <HeaderButtom to='/likes'>
+            Filmes curtidos
+          </HeaderButtom>
+          <HeaderButtom to='/dislikes'>
+            Filmes não curtidos
+          </HeaderButtom>
+        </Nav>
+      </Header>
+      <Main>
+        {children}
+      </Main>
+      <Footer>
+        <ImFacebook size={16} fill="white" />
+        <FooterIconDivider />
+        <ImInstagram size={16} fill="white" />
+        <FooterIconDivider />
+        <ImPinterest2 size={16} fill="white" />
+        <FooterIconDivider />
+        <TiSocialGooglePlus size={22} fill="white" style={{marginTop: '-.2rem'}}/>
+      </Footer> 
+    </Body>
   )
 }
 

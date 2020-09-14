@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import { Row} from 'antd'
 
-
-export const StdFooter = styled(Row)`
-  padding: 1rem;
-  bottom: 0;
+export const Footer = styled.footer`
+  z-index: 1;
   width: 100%;
-  position: absolute;
+  height: 3rem;
+  bottom: 0;
+  position: fixed;
+  padding: 1rem;
   background-color: #363636;
-  height: 5%;
   border-top: 0.0625rem solid #fff;
+  display: flex;
+  justify-content: center;
 `

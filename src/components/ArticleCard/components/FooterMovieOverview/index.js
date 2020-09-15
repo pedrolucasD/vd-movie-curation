@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Row } from 'antd'
 
 export const FooterMovieOverview = styled.footer`
   min-height: 5rem;
@@ -13,8 +12,9 @@ export const FooterMovieOverview = styled.footer`
 
 export const MovieTitle = styled.h1`
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
+  text-transform: uppercase;
 `

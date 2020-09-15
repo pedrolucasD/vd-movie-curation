@@ -1,4 +1,8 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {
+  useEffect,
+  useState,
+  useContext
+} from 'react'
 import Context from '../../store/context'
 import api from '../../services/api'
 import PageDefault from '../../components/PageDefault'
@@ -8,8 +12,16 @@ import { FooterMovieOverview, MovieTitle } from '../../components/ArticleCard/co
 import { Row, Col } from 'antd'
 import { MovieRate } from '../../components/Rate/index'
 import { DivControls, IconButton, Button } from '../../components/Button'
+import { Thumbnail } from '../../components/Thumbnail'
 import LikeIcon from '../../assets/icons/curti.png'
 import DislikeIcon from '../../assets/icons/n-curti.png'
+import { 
+  Modal,
+  ModalCloseButton,
+  ModalAlpha,
+  ModalContent,
+  ModalMovieTitle
+} from '../../components/Modal'
 
 const apiKey = '?api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 
@@ -17,6 +29,12 @@ const UnratedMovies = () => {
   const { movieNumber, likes, dislikes, actions } = useContext(Context)
   const [movie, setMovie] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  document.addEventListener('keydown', function(event){
+    if(event.key === "Escape"){
+      setModalIsOpen(false)
+    }
+  });
 
   async function handleLoadMovie(movieNumber){
     try {
@@ -144,12 +162,12 @@ const UnratedMovies = () => {
                 { getMovieTagline(movie.tagline === "" ? movie.overview : movie.tagline) }
               </Col>
               <Col span={3}>
-                <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}}>
+                <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
                   Ver Sinopse
                 </a>
               </Col>
             </Row>
-          </FooterMovieOverview>        
+          </FooterMovieOverview>       
         </ArticleCard>
         <DivControls justify="space-around">
           <Col>
@@ -171,6 +189,40 @@ const UnratedMovies = () => {
           </Col>
         </DivControls>
       </PageDefault>
+      {/* START MODAL OVERVIEW */}
+      {
+        modalIsOpen ? (
+          <Modal>
+            <ModalAlpha onClick={() => setModalIsOpen(false)} />
+            <ModalContent>
+              <ModalCloseButton onClick={() => setModalIsOpen(false)}>x</ModalCloseButton>
+              <Row justify="center">
+                <Thumbnail srcImg={imgPoster} />
+              </Row>
+              <Row justify="center" style={{marginTop: '1rem'}}>
+                <ModalMovieTitle>
+                  { movie.title }
+                </ModalMovieTitle>
+              </Row>
+              <Row justify="center" style={{textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem'}}>
+                  { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
+                  { getGenres(movie.genres) }&nbsp;•&nbsp;
+                  { getMovieTime(movie.runtime) }
+              </Row>
+              <Row justify="center">
+                {MovieRate(movie.vote_average)}
+              </Row>
+              <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
+                {'(' + movie.vote_count + ' avaliações' +')'}
+              </Row>
+              <Row justify="left" style={{overflow: 'auto'}}>
+                { movie.overview == "" ? "Sinopse não encontrada" : movie.overview }
+              </Row>
+            </ModalContent>
+          </Modal>    
+        ) : null
+      } 
+      {/* END MODAL OVERVIEW */}
     </>     
   )
 }

@@ -59,6 +59,13 @@ export const ModalContent = styled.div`
   flex-wrap: wrap;
   background-color: #fff;
   background: linear-gradient(to bottom, #ff5656 7rem, #fff 0);
+  animation: modalAnimation .3s;
+
+  @keyframes modalAnimation {
+    0% {top: -10%; opacity: 0}
+    100% {left: 0; opacity: unset}
+  }
+
 ` 
 
 export const ModalMovieTitle = styled.h1`

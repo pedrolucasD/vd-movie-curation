@@ -31,5 +31,18 @@ export const ImageBG = styled.div`
   display: inline-block;
   background-image: url(${ props => urlImgApi+props.srcImg });
   background-size: cover;
-  opacity: .15;
+  opacity: .2;
+
+  animation: ${ props => props.fade == true ? 'fadeOut 1s' : 'fadeIn 1s'};
+
+  @keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: .2}
+  }
+
+  @keyframes fadeOut {
+    0% {opacity: .2}
+    100% {opacity: 0}
+  }
+
 `

@@ -14,6 +14,18 @@ export const ArticleCard = styled.article`
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+   
+  animation: ${ props => props.slide == true ? 'currentToNext .3s' : 'previousToCurrent .3s' };
+
+  @keyframes currentToNext {
+    0% {left: 0; opacity: unset}
+    100% {left: 20%; opacity: 0.0}
+  }
+
+  @keyframes previousToCurrent {
+    0% {left: -20%; opacity: 0.0}
+    100% {left: 0; opacity: unset}
+  }
 
   /* @media only screen and (max-width: 320px) {
     width: 21.875rem;

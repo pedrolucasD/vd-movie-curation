@@ -29,6 +29,7 @@ const UnratedMovies = () => {
   const { movieNumber, likes, dislikes, actions } = useContext(Context)
   const [movie, setMovie] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [slideAnimate, setSlideAnimate] = useState(false)
 
   document.addEventListener('keydown', function(event){
     if(event.key === "Escape"){
@@ -36,24 +37,30 @@ const UnratedMovies = () => {
     }
   });
 
-  async function handleLoadMovie(movieNumber){
+  async function handleLoadMovie(movieNumber){    
     try {
       const response = await api.get('/'+movieNumber+apiKey)
       setMovie(response.data)
     } catch {
-      nextMovie()
+      actions({type:'handleSetMovieNumber', payload: movieNumber+1})
     }
   }
   
   useEffect(() => {
     handleLoadMovie(movieNumber)
   }, [movieNumber])
+
+ 
   
   const imgBg = movie.backdrop_path
   const imgPoster = movie.poster_path
 
   function nextMovie(){
-    actions({type:'handleSetMovieNumber', payload: movieNumber+1})
+    setSlideAnimate(true)
+    setTimeout(() => {
+      actions({type:'handleSetMovieNumber', payload: movieNumber+1})
+      setSlideAnimate(false)
+    }, 300);
   }
   
   function getMovieTime(movieTime){
@@ -125,9 +132,9 @@ const UnratedMovies = () => {
   return(
     <>
       <ImageFilter />
-      <ImageBG srcImg={imgBg} />
+      <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
-        <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}}>
+        <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview>     
             <Row align="middle">
               <Col span={18}>

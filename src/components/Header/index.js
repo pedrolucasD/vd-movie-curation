@@ -8,6 +8,7 @@ export const Header = styled.header`
   padding: 1rem;
   position: sticky;
   text-align: center;
+  background-color: ${props => props.bgSolid != 1 ? '#ff5656' : 'none'};
 `
 export const Nav = styled.nav`
   display: flex;

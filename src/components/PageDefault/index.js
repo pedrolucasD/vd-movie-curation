@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
+import Context from '../../store/context'
 import { Body, Main, FooterIconDivider } from './styles'
 import { Header, Nav } from '../Header'
 import { Footer } from '../../components/Footer'
@@ -8,21 +9,25 @@ import { TiSocialGooglePlus  } from "react-icons/ti";
 import LogoVD from '../../assets/img/logo-viva-decora.png'
 
 
+
 const PageDefault = ({children}) => {
+
+  const { currentPage } = useContext(Context)
+
   return(
     <Body>
-      <Header>
+      <Header bgSolid={currentPage}>
         <div style={{width: '100%', marginBottom: '1rem'}}>
           <img src={LogoVD} />
         </div>
-        <Nav>
-          <HeaderButtom to='/'>
+        <Nav className="hideOnMobile">
+          <HeaderButtom to='/' isActive={currentPage == 1 ? true : false }>
             Filmes não curados
           </HeaderButtom>
-          <HeaderButtom to='/likes'>
+          <HeaderButtom to='/likes' isActive={currentPage == 2 ? true : false }>
             Filmes curtidos
           </HeaderButtom>
-          <HeaderButtom to='/dislikes'>
+          <HeaderButtom to='/dislikes' isActive={currentPage == 3 ? true : false }>
             Filmes não curtidos
           </HeaderButtom>
         </Nav>
@@ -30,7 +35,7 @@ const PageDefault = ({children}) => {
       <Main>
         {children}
       </Main>
-      <Footer>
+      <Footer className="hideOnMobile">
         <ImFacebook size={16} fill="white" />
         <FooterIconDivider />
         <ImInstagram size={16} fill="white" />

@@ -8,6 +8,16 @@ export const FooterMovieOverview = styled.footer`
   padding: .5rem 1.5rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
+
+  
+  @media only screen and (max-width: 600px){
+    display: flex;
+    flex-direction: column;
+    padding: .25rem .75rem;
+    .MobileTextAlignLeft{
+      text-align: left;
+    }
+  }
 `
 
 export const MovieTitle = styled.h1`
@@ -17,4 +27,8 @@ export const MovieTitle = styled.h1`
   color: #fff;
   text-shadow: 0px 0px .2rem black;
   text-transform: uppercase;
+
+  @media only screen and (max-width: 740px){
+    font-size: 1.3rem;
+  }
 `

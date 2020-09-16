@@ -6,6 +6,15 @@ export const DivControls = styled(Row)`
   width: 100%;
   justify-content: center;
   margin: 1rem 0;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 600px) {
+    position: fixed;
+    bottom: 1rem;
+  }
 `
 
 export const Button = styled.button`
@@ -18,7 +27,7 @@ export const Button = styled.button`
   height: 4rem;
   border-radius: 4rem;
   min-width: fit-content;
-  background-color: #FFF;
+  background-color: #fff;
   
   text-transform: uppercase;
   font-weight: 400;
@@ -26,6 +35,17 @@ export const Button = styled.button`
   display: flex;
   flex-direction: row;
   padding: 1.5rem;
+
+  :active {
+    opacity: 0.93;
+  }
+
+  @media only screen and (max-width: 320px){
+    height: 2rem;
+    border-radius: 2rem;
+    margin: 0; 
+  }
+
 ` 
 
 export const IconButton = styled.button`
@@ -36,9 +56,9 @@ export const IconButton = styled.button`
   margin: 0 1rem;  
   text-align: center;
   height: 4rem;
+  width: fit-content;
   border-radius: 4rem;
   min-width: 12rem;
-  width: fit-content;
   background-color: #FFF;
   
   text-transform: uppercase;
@@ -48,24 +68,41 @@ export const IconButton = styled.button`
   flex-direction: row;
   padding: 1rem;
   justify-content: center;
+
+  :active {
+    opacity: 0.93;
+  }
+
+  @media only screen and (max-width: 600px) {
+    min-width: 5rem;
+    min-height: 5rem;
+    border-radius: 5rem;
+  }
+
+  @media only screen and (max-width: 320px){
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 2rem;
+  }
+
 ` 
 
 export const HeaderButtom = styled(Link)`
 	background: none;
 	color: #fff;
-	border: none;
 	font: inherit;
 	cursor: pointer;
   outline: inherit;
   text-decoration: none;
   font-size: .8rem;
-  font-weight: 300;
-  min-width: 12rem;
+  font-weight: ${props => props.isActive ? 400 : 300 };
   text-align: center;
   text-transform: uppercase;
+  border-bottom: ${props => props.isActive ? '.25rem solid #fff' : 'none' };
+  margin: 0 2rem;
 
-  :focus {
-    border-bottom: solid .1rem #fff;
-    font-weight: bolder;
+  :hover {
+    color: #fff;
   }
+
 `

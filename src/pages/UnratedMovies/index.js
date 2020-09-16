@@ -26,11 +26,12 @@ import {
 const apiKey = '?api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 
 const UnratedMovies = () => {
-  const { movieNumber, likes, dislikes, actions } = useContext(Context)
+  const winWidth = window.screen.width
+  const { movieNumber, likes, dislikes, currentPage, actions } = useContext(Context)
   const [movie, setMovie] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [slideAnimate, setSlideAnimate] = useState(false)
-
+ 
   document.addEventListener('keydown', function(event){
     if(event.key === "Escape"){
       setModalIsOpen(false)
@@ -45,6 +46,10 @@ const UnratedMovies = () => {
       actions({type:'handleSetMovieNumber', payload: movieNumber+1})
     }
   }
+
+  useEffect(() => {
+    actions({type:'handleSetCurrentPage', payload: 1})
+  }, [])
   
   useEffect(() => {
     handleLoadMovie(movieNumber)
@@ -88,8 +93,13 @@ const UnratedMovies = () => {
     return movieTitle
   }
 
-  function getMovieTagline(tagline){
-    const movieTagline = tagline?.length > 75 ? tagline?.substr(0, 75)+"..." : tagline
+
+
+  function getMovieOverview(tagline){
+    const movieTagline = winWidth < 430 ?
+    (tagline?.length > 20 ? tagline?.substr(0, 20)+"..." : tagline) :
+    (tagline?.length > 75 ? tagline?.substr(0, 75)+"..." : tagline) 
+    
     if(tagline === ""){
       return "Sinopse não encontrada"
     } else {
@@ -135,11 +145,13 @@ const UnratedMovies = () => {
       <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
-          <FooterMovieOverview>     
+          <FooterMovieOverview> 
+            
             <Row align="middle">
-              <Col span={18}>
-                <Row style={{margin: '.4 rem 0'}}>
-                  <Col>
+              
+              <Col span={winWidth < 430 ? 24 : 18}>
+                <Row style={{margin: '.4 rem 0'}} >
+                  <Col span={24}>
                     <MovieTitle>
                       {
                         getMovieTitle(movie.title)
@@ -147,7 +159,7 @@ const UnratedMovies = () => {
                     </MovieTitle>
                   </Col>
                 </Row>
-                <Row>
+                <Row className="hideOnMobile">
                   <Col span={24} style={{textTransform: 'uppercase'}}>
                     { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
                     { getGenres(movie.genres) }&nbsp;•&nbsp;
@@ -155,32 +167,39 @@ const UnratedMovies = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col span={6}>
-                <Row style={{float: 'right', marginRight: '-.3rem'}}>
+
+              <Col span={winWidth < 430 ? 24 : 6}>
+                <Row style={winWidth < 430 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 430 ? 12 : 24}>
                   {MovieRate(movie.vote_average)}
                 </Row>
-                <Row style={{float: 'right', fontSize: '.7rem'}}>
+                <Row style={{float: 'right'}}>
                   {'(' + movie.vote_count + ' avaliações' +')'}
                 </Row>
               </Col>
+
             </Row>
+
             <Row style={{margin: '.5rem 0'}}>
-              <Col span={21}>
-                { getMovieTagline(movie.tagline === "" ? movie.overview : movie.tagline) }
+              <Col span={ winWidth < 430 ? 16 : 21 }>
+                { getMovieOverview(movie.overview) }
               </Col>
-              <Col span={3}>
+              <Col span={ winWidth < 430 ? 8 : 3 }>
                 <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
                   Ver Sinopse
                 </a>
               </Col>
             </Row>
-          </FooterMovieOverview>       
+
+          </FooterMovieOverview>
+                 
         </ArticleCard>
         <DivControls justify="space-around">
           <Col>
             <IconButton onClick={() => dislikeMovie()}>
-              <img src={DislikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '6%'}}/>
-              Não curti!
+              <img src={DislikeIcon} style={{maxWidth: '1.8rem', marginRight: '.5rem', marginTop: '6%'}}/>
+              <div className="hideOnMobile">
+                Não curti!
+              </div>
             </IconButton>
           </Col>
           <Col>
@@ -190,8 +209,10 @@ const UnratedMovies = () => {
           </Col>
           <Col>
             <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie()}>
-              <img src={LikeIcon} style={{maxWidth: '1.2rem', marginRight: '.5rem', marginTop: '-6%'}}/>
-              Curti!
+              <img src={LikeIcon} style={{maxWidth: '1.8rem', marginRight: '.5rem', marginTop: '-6%'}}/>
+              <div className="hideOnMobile">
+                Curti!
+              </div>
             </IconButton>
           </Col>
         </DivControls>
@@ -207,11 +228,11 @@ const UnratedMovies = () => {
                 <Thumbnail srcImg={imgPoster} />
               </Row>
               <Row justify="center" style={{marginTop: '1rem'}}>
-                <ModalMovieTitle>
+                <ModalMovieTitle style={winWidth < 430 ? {maxHeight: '5rem', overflow: 'auto'} : {overflow: 'auto'}}>
                   { movie.title }
                 </ModalMovieTitle>
               </Row>
-              <Row justify="center" style={{textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem'}}>
+              <Row justify="center" style={{textAlign: 'center', textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem'}}>
                   { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
                   { getGenres(movie.genres) }&nbsp;•&nbsp;
                   { getMovieTime(movie.runtime) }
@@ -222,7 +243,8 @@ const UnratedMovies = () => {
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movie.vote_count + ' avaliações' +')'}
               </Row>
-              <Row justify="left" style={{overflow: 'auto'}}>
+              <Row 
+                justify="left" style={winWidth <= 320 ? {maxHeight: '5rem', overflow: 'auto'} : winWidth <= 430 ? {maxHeight: '10rem', overflow: 'auto'} : {overflow: 'auto'}}>
                 { movie.overview == "" ? "Sinopse não encontrada" : movie.overview }
               </Row>
             </ModalContent>

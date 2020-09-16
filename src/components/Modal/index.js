@@ -13,6 +13,20 @@ export const Modal = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+
+  @media only screen and (max-width: 600px){
+    padding: .5rem 1.5rem;
+    height: 100%;
+    position: fixed;
+  }
+
+  @media only screen and (max-width: 320px){
+    padding: 1rem;
+    height: 100%;
+    position: absolute;
+  }
+
 `
 
 export const ModalAlpha = styled.a`
@@ -42,9 +56,13 @@ export const ModalCloseButton = styled.a`
   text-align: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: #000;
+
+  :hover {
+    color: #000;
+  }
 `
 
 export const ModalContent = styled.div`
@@ -65,7 +83,19 @@ export const ModalContent = styled.div`
     0% {top: -10%; opacity: 0}
     100% {left: 0; opacity: unset}
   }
+  
+  @media only screen and (max-width: 320px){
+    top: 0;
+    max-height: 100%;
+    max-width: 100%;
+  }
 
+  @media only screen and (min-width: 360px) and (max-width: 460px){
+    top: 0;
+    max-height: 95%;
+    max-width: 95%;
+    padding: 3rem 2rem;
+  }
 ` 
 
 export const ModalMovieTitle = styled.h1`
@@ -75,4 +105,15 @@ export const ModalMovieTitle = styled.h1`
   font-weight: 900;
   color: #363636;
   text-transform: uppercase;
+
+  @media only screen and (max-width: 600px){
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  @media only screen and (max-width: 320px){
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
 `

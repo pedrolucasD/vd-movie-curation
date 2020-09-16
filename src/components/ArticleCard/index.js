@@ -27,8 +27,9 @@ export const ArticleCard = styled.article`
     100% {left: 0; opacity: unset}
   }
 
-  /* @media only screen and (max-width: 320px) {
-    width: 21.875rem;
-    height: 18.375rem;
-} */
+  @media only screen and (max-width: 600px){
+    min-width: 18.375rem;
+    min-height: 21.875rem;
+  }
+
 `

@@ -16,6 +16,7 @@ export const ArticleCard = styled.article`
   position: relative;
    
   animation: ${ props => props.slide == true ? 'currentToNext .3s' : 'previousToCurrent .3s' };
+  animation-fill-mode: forwards;
 
   @keyframes currentToNext {
     0% {left: 0; opacity: unset}

@@ -15,6 +15,7 @@ export const Main = styled.main`
   display: grid;
   justify-items: center;
   vertical-align: center;
+  
 
   @media only screen and (max-width: 420px){    
     top: 0;

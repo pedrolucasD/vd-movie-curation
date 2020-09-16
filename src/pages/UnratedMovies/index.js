@@ -23,7 +23,7 @@ import {
   ModalMovieTitle
 } from '../../components/Modal'
 
-const apiKey = '?api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
+const apiKey = '?&api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 
 const UnratedMovies = () => {
   const winWidth = window.screen.width
@@ -42,6 +42,7 @@ const UnratedMovies = () => {
     try {
       const response = await api.get('/'+movieNumber+apiKey)
       setMovie(response.data)
+      setSlideAnimate(false)
     } catch {
       actions({type:'handleSetMovieNumber', payload: movieNumber+1})
     }
@@ -64,7 +65,6 @@ const UnratedMovies = () => {
     setSlideAnimate(true)
     setTimeout(() => {
       actions({type:'handleSetMovieNumber', payload: movieNumber+1})
-      setSlideAnimate(false)
     }, 300);
   }
   
@@ -146,9 +146,7 @@ const UnratedMovies = () => {
       <PageDefault>
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview> 
-            
             <Row align="middle">
-              
               <Col span={winWidth < 430 ? 24 : 18}>
                 <Row style={{margin: '.4 rem 0'}} >
                   <Col span={24}>
@@ -167,18 +165,15 @@ const UnratedMovies = () => {
                   </Col>
                 </Row>
               </Col>
-
               <Col span={winWidth < 430 ? 24 : 6}>
                 <Row style={winWidth < 430 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 430 ? 12 : 24}>
-                  {MovieRate(movie.vote_average)}
+                  {MovieRate(movie.vote_average, true)}
                 </Row>
                 <Row style={{float: 'right'}}>
                   {'(' + movie.vote_count + ' avaliações' +')'}
                 </Row>
               </Col>
-
             </Row>
-
             <Row style={{margin: '.5rem 0'}}>
               <Col span={ winWidth < 430 ? 16 : 21 }>
                 { getMovieOverview(movie.overview) }
@@ -189,9 +184,7 @@ const UnratedMovies = () => {
                 </a>
               </Col>
             </Row>
-
           </FooterMovieOverview>
-                 
         </ArticleCard>
         <DivControls justify="space-around">
           <Col>
@@ -218,8 +211,7 @@ const UnratedMovies = () => {
         </DivControls>
       </PageDefault>
       {/* START MODAL OVERVIEW */}
-      {
-        modalIsOpen ? (
+      { modalIsOpen ? (
           <Modal>
             <ModalAlpha onClick={() => setModalIsOpen(false)} />
             <ModalContent>
@@ -232,25 +224,25 @@ const UnratedMovies = () => {
                   { movie.title }
                 </ModalMovieTitle>
               </Row>
-              <Row justify="center" style={{textAlign: 'center', textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem'}}>
+              <Row justify="center" style={{textAlign: 'center', textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem', maxWidth: '100%'}}>
                   { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
                   { getGenres(movie.genres) }&nbsp;•&nbsp;
                   { getMovieTime(movie.runtime) }
               </Row>
               <Row justify="center">
-                {MovieRate(movie.vote_average)}
+                {MovieRate(movie.vote_average, true)}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movie.vote_count + ' avaliações' +')'}
               </Row>
               <Row 
-                justify="left" style={winWidth <= 320 ? {maxHeight: '5rem', overflow: 'auto'} : winWidth <= 430 ? {maxHeight: '10rem', overflow: 'auto'} : {overflow: 'auto'}}>
+                justify="left" style={winWidth <= 320 ? {maxHeight: '5rem', maxWidth: '100%', overflow: 'auto'} : winWidth <= 430 ? {maxHeight: '10rem', maxWidth: '100%', overflow: 'auto'} : {overflow: 'auto'}}>
                 { movie.overview == "" ? "Sinopse não encontrada" : movie.overview }
               </Row>
             </ModalContent>
           </Modal>    
-        ) : null
-      } 
+        )
+      : null } 
       {/* END MODAL OVERVIEW */}
     </>     
   )

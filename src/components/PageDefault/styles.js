@@ -3,6 +3,12 @@ import styled from 'styled-components'
 export const Body = styled.body`
   font-family: 'Roboto', sans-serif;
 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: center;
+
   @media only screen and (max-width: 420px){
     .hideOnMobile{
       display: none;
@@ -11,10 +17,13 @@ export const Body = styled.body`
 `
 
 export const Main = styled.main`
-  position: relative;
-  display: grid;
+  top: 15%;
+  bottom: 6%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
-  vertical-align: center;
+  justify-content: center;
   
 
   @media only screen and (max-width: 420px){    
@@ -30,6 +39,7 @@ export const Main = styled.main`
     flex-wrap: wrap;
     justify-content: center;
   }
+  
 `
 
 export const FooterIconDivider = styled.div`

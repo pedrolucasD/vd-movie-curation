@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Footer = styled.footer`
   z-index: 1;
   width: 100%;
-  height: 3rem;
-  bottom: 0;
+  min-height: 6%;
+  bottom: -1%;
   position: fixed;
   padding: 1rem;
   background-color: #363636;

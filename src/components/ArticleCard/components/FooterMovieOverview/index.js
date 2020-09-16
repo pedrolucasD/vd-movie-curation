@@ -10,7 +10,7 @@ export const FooterMovieOverview = styled.footer`
   text-shadow: 0px 0px .2rem black;
 
   
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 420px){
     display: flex;
     flex-direction: column;
     padding: .25rem .75rem;
@@ -28,7 +28,7 @@ export const MovieTitle = styled.h1`
   text-shadow: 0px 0px .2rem black;
   text-transform: uppercase;
 
-  @media only screen and (max-width: 740px){
+  @media only screen and (max-width: 420px){
     font-size: 1.3rem;
   }
 `

@@ -4,8 +4,8 @@ import EmptyMovieOrImage from '../../assets/img/video-camera-vazio.png'
 const urlImgApi = 'https://image.tmdb.org/t/p/w500/'
 
 export const ArticleCard = styled.article`
-  min-width: 43.75rem;
-  min-height: 28.75rem;
+  width: 43.75rem;
+  height: 28.75rem;
   background-color: #fff;
   opacity: 0.999;
   border-radius: .25rem;
@@ -28,9 +28,9 @@ export const ArticleCard = styled.article`
     100% {left: 0; opacity: unset}
   }
 
-  @media only screen and (max-width: 600px){
-    min-width: 18.375rem;
-    min-height: 21.875rem;
+  @media only screen and (max-width: 420px){
+    width: 18.375rem;
+    height: 21.875rem;
   }
 
 `

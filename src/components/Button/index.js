@@ -5,15 +5,17 @@ import { Row } from 'antd'
 export const DivControls = styled(Row)`
   width: 100%;
   justify-content: center;
-  margin: 1rem 0;
   align-items: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  bottom: 0;
+  position: relative;
+  padding: 1rem;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 420px) {
     position: fixed;
     bottom: 1rem;
+    padding: 0;
   }
 `
 
@@ -73,7 +75,7 @@ export const IconButton = styled.button`
     opacity: 0.93;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 420px) {
     min-width: 5rem;
     min-height: 5rem;
     border-radius: 5rem;

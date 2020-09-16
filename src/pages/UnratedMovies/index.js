@@ -147,7 +147,7 @@ const UnratedMovies = () => {
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview> 
             <Row align="middle">
-              <Col span={winWidth < 430 ? 24 : 18}>
+              <Col span={winWidth < 420 ? 24 : 18}>
                 <Row style={{margin: '.4 rem 0'}} >
                   <Col span={24}>
                     <MovieTitle>
@@ -165,8 +165,8 @@ const UnratedMovies = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col span={winWidth < 430 ? 24 : 6}>
-                <Row style={winWidth < 430 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 430 ? 12 : 24}>
+              <Col span={winWidth < 420 ? 24 : 6}>
+                <Row style={winWidth < 420 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 420 ? 12 : 24}>
                   {MovieRate(movie.vote_average, true)}
                 </Row>
                 <Row style={{float: 'right'}}>
@@ -175,10 +175,10 @@ const UnratedMovies = () => {
               </Col>
             </Row>
             <Row style={{margin: '.5rem 0'}}>
-              <Col span={ winWidth < 430 ? 16 : 21 }>
+              <Col span={ winWidth < 420 ? 16 : 21 }>
                 { getMovieOverview(movie.overview) }
               </Col>
-              <Col span={ winWidth < 430 ? 8 : 3 }>
+              <Col span={ winWidth < 420 ? 8 : 3 }>
                 <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
                   Ver Sinopse
                 </a>
@@ -220,7 +220,7 @@ const UnratedMovies = () => {
                 <Thumbnail srcImg={imgPoster} />
               </Row>
               <Row justify="center" style={{marginTop: '1rem'}}>
-                <ModalMovieTitle style={winWidth < 430 ? {maxHeight: '5rem', overflow: 'auto'} : {overflow: 'auto'}}>
+                <ModalMovieTitle style={winWidth < 420 ? {maxHeight: '5rem', overflow: 'auto'} : {overflow: 'auto'}}>
                   { movie.title }
                 </ModalMovieTitle>
               </Row>
@@ -236,7 +236,7 @@ const UnratedMovies = () => {
                 {'(' + movie.vote_count + ' avaliações' +')'}
               </Row>
               <Row 
-                justify="left" style={winWidth <= 320 ? {maxHeight: '5rem', maxWidth: '100%', overflow: 'auto'} : winWidth <= 430 ? {maxHeight: '10rem', maxWidth: '100%', overflow: 'auto'} : {overflow: 'auto'}}>
+                justify="left" style={winWidth <= 320 ? {maxHeight: '8rem', maxWidth: '100%', overflow: 'auto'} : winWidth <= 420 ? {maxHeight: '13rem', maxWidth: '100%', overflow: 'auto'} : {overflow: 'auto'}}>
                 { movie.overview == "" ? "Sinopse não encontrada" : movie.overview }
               </Row>
             </ModalContent>

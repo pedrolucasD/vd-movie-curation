@@ -23,7 +23,7 @@ export const ImageFilter = styled.div`
   height: 100%;
   width: 100%;
   position: fixed;
-  background: linear-gradient(-45deg, #ff1c1c, #ff5656);
+  background: linear-gradient(225deg, #ff1c1c, #ff5656);
 `
 
 export const ImageBG = styled.div`
@@ -52,4 +52,19 @@ export const ImageBG = styled.div`
     100% {opacity: 0}
   }
 
+`
+
+export const ContainerSecondary = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 6.5rem;;
+  right: 12.4rem;
+  bottom: -1rem;
+  left: 12.4rem;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 `

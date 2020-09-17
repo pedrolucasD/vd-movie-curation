@@ -17,6 +17,7 @@ export const DivControls = styled(Row)`
     bottom: 1rem;
     padding: 0;
   }
+
 `
 
 export const Button = styled.button`
@@ -75,16 +76,18 @@ export const IconButton = styled.button`
     opacity: 0.93;
   }
 
-  @media only screen and (max-width: 420px) {
+  @media only screen and (min-width: 320px) and (max-width: 420px) {
     min-width: 5rem;
     min-height: 5rem;
     border-radius: 5rem;
+    padding: 0;
   }
 
   @media only screen and (max-width: 320px){
-    min-width: 2rem;
-    min-height: 2rem;
-    border-radius: 2rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    border-radius: 3rem;
+    padding: 0;
   }
 
 ` 
@@ -103,6 +106,13 @@ export const HeaderButtom = styled(Link)`
   border-bottom: ${props => props.isActive ? '.25rem solid #fff' : 'none' };
   margin: 0 2rem;
 
+  :hover {
+    color: #fff;
+  }
+
+`
+
+export const mobileSiderButton = styled.a`
   :hover {
     color: #fff;
   }

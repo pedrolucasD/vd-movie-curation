@@ -144,6 +144,7 @@ const UnratedMovies = () => {
       <ImageFilter />
       <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview> 
             <Row align="middle">
@@ -186,6 +187,7 @@ const UnratedMovies = () => {
             </Row>
           </FooterMovieOverview>
         </ArticleCard>
+      </div>
         <DivControls justify="space-around">
           <Col>
             <IconButton onClick={() => dislikeMovie()}>

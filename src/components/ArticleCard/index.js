@@ -7,14 +7,12 @@ export const ArticleCard = styled.article`
   width: 43.75rem;
   height: 28.75rem;
   background-color: #fff;
-  opacity: 0.999;
   border-radius: .25rem;
   background-image: url(${ props => props.srcImg == null ? EmptyMovieOrImage : urlImgApi+props.srcImg });
   background-size: ${ props => props.srcImg == null ? 'center no-repeat' : 'cover' };
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-   
   animation: ${ props => props.slide == true ? 'currentToNext .3s' : 'previousToCurrent .3s' };
   animation-fill-mode: forwards;
 

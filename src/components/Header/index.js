@@ -2,13 +2,18 @@ import styled from 'styled-components'
 
 export const Header = styled.header`
   z-index: 1;
-  height: 10%;
+  height: 7.15rem;
   width: 100%;
+  position: absolute;
   top: 0;
   padding: 1rem;
-  position: sticky;
   text-align: center;
-  background-color: ${props => props.bgSolid != 1 ? '#ff5656' : 'none'};
+  background: ${props => props.bgSolid != 1 ? 'linear-gradient(225deg, #ff1c1c, #ff5656)' : 'none'};
+
+  @media only screen and (max-width: 420px){
+    height: auto;
+  }
+
 `
 export const Nav = styled.nav`
   display: flex;

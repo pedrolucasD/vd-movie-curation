@@ -67,4 +67,26 @@ export const ContainerSecondary = styled.div`
   ::-webkit-scrollbar {
     width: 0px;
   }
+
+  @media only screen and (max-width: 420px){
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 8rem;;
+    right: 1rem;
+    bottom: 0rem;
+    left: 1rem;
+    overflow: auto;
+  }
+
+  @media only screen and (max-width: 320px){
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 8rem;;
+    right: .5rem;
+    bottom: 0rem;
+    left: .5rem;
+    overflow: auto;
+  }
 `

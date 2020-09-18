@@ -1,4 +1,4 @@
-# WebroAPI
+# Curadoria de Filmes
 
 Interface web, responsiva, consumindo a API fornecida pelo [The Movie Database (V3)](https://www.themoviedb.org).
 

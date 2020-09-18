@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MobileSider = styled.nav`
   z-index: 9999;
-  left: -100%;
+  left: -15rem;
   height: 100%;
   width: 15rem;
   position: fixed;

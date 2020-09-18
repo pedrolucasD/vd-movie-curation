@@ -29,6 +29,7 @@ export const ThumbFooter = styled.footer`
   width: 100%;
   bottom: 0;
   position: absolute;
+  border-radius: .3rem;
   padding: 1rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;

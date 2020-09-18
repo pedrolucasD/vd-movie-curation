@@ -9,7 +9,6 @@ import { ContainerSecondary } from '../../components/Container'
 import { ArticleThumbnail, ThumbFooter, ThumbTitle } from '../../components/ArticleThumbnail'
 import { MovieRate } from '../../components/Rate'
 import { Thumbnail } from '../../components/Thumbnail'
-
 import { 
   Modal,
   ModalCloseButton,
@@ -115,7 +114,7 @@ const DislikedMovies = () => {
                               </Row>
                               <Row gutter={[0, 10]} align="middle">
                                 <Col span={winWidth > 420 ? 12 : 24}>
-                                  { MovieRate(dislike.vote_average, true, '1rem') }
+                                  { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18 ) }
                                 </Col>
                                 <Col span={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
                                   {'(' + dislike.vote_count + ' avaliações' +')'}
@@ -159,7 +158,7 @@ const DislikedMovies = () => {
                   { getMovieTime(movieSelected.runtime) }
               </Row>
               <Row justify="center">
-                {MovieRate(movieSelected.vote_average, true)}
+                {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true )}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movieSelected.vote_count + ' avaliações' +')'}

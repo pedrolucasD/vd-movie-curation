@@ -58,35 +58,36 @@ export const ContainerSecondary = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 6.5rem;;
-  right: 12.4rem;
-  bottom: -1rem;
-  left: 12.4rem;
+  top: 6.5rem;
+  right: 10rem;
+  bottom: 0rem;
+  left: 10rem;
   overflow: auto;
 
   ::-webkit-scrollbar {
-    width: 0px;
+    display: none;
   }
 
-  @media only screen and (max-width: 420px){
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 8rem;;
+
+  @media only screen and (max-width: 321px){
+    top: 4rem;
+    right: .5rem;
+    bottom: 0rem;
+    left: .5rem;
+    overflow: auto;
+  }
+  
+  @media screen and (min-width: 322px) and (max-width: 421px){
+    top: 4rem;
     right: 1rem;
     bottom: 0rem;
     left: 1rem;
     overflow: auto;
   }
 
-  @media only screen and (max-width: 320px){
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 8rem;;
-    right: .5rem;
-    bottom: 0rem;
-    left: .5rem;
-    overflow: auto;
+  @media screen and (min-width: 422px) and (max-width: 1361px) {
+    top: 5rem;
+    left: 5rem;
+    right: 5rem;
   }
 `

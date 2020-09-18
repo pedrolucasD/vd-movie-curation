@@ -4,8 +4,8 @@ const urlImgApi = 'https://image.tmdb.org/t/p/w500/'
 
 
 export const ArticleThumbnail = styled.div`
-  max-height: 24.625rem;
-  max-width: 21.875rem;
+  height: 24.625rem;
+  width: 21.875rem;
   background-color: #fff;
   opacity: 1;
   border-radius: .3rem;
@@ -14,27 +14,30 @@ export const ArticleThumbnail = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  box-shadow: inset 0 0 4rem rgb(0, 0, 0, 0.4);
 
   @media only screen and (max-width: 420px){
-    max-height: 10.875rem;
-    max-width: 9.062rem;
+    height: 10.875rem;
+    width: 9.062rem;
+    box-shadow: inset 0 0 2rem rgb(0, 0, 0, 0.4);
   }
 `
 
 export const ThumbFooter = styled.footer`
-  height: 5rem;
+  min-height: 5rem;
   width: 100%;
   bottom: 0;
   position: absolute;
-  padding: 1rem 1rem;
+  padding: 1rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
 
   
   @media only screen and (max-width: 420px){
-    height: 2rem;
+    min-height: 2rem;
     display: flex;
     flex-direction: column;
+    text-shadow: unset;
     padding: .25rem .75rem;
     .MobileTextAlignLeft{
       text-align: left;
@@ -52,5 +55,6 @@ export const ThumbTitle = styled.h1`
 
   @media only screen and (max-width: 420px){
     font-size: .8rem;
+    text-shadow: unset;
   }
 `

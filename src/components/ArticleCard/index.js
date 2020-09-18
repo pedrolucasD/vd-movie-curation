@@ -15,6 +15,7 @@ export const ArticleCard = styled.article`
   position: relative;
   animation: ${ props => props.slide == true ? 'currentToNext .3s' : 'previousToCurrent .3s' };
   animation-fill-mode: forwards;
+  box-shadow: inset 0 0 8rem rgb(0, 0, 0, 0.5);
 
   @keyframes currentToNext {
     0% {left: 0; opacity: unset}
@@ -27,8 +28,11 @@ export const ArticleCard = styled.article`
   }
 
   @media only screen and (max-width: 420px){
-    width: 18.375rem;
-    height: 21.875rem;
+    max-width: 18.375rem;
+    max-height: 21.875rem;
+    box-shadow: inset 0 0 3rem rgb(0, 0, 0, 0.4);
   }
 
 `
+
+

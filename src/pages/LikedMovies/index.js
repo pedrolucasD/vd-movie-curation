@@ -84,57 +84,63 @@ const DislikedMovies = () => {
   return(
     <>
       <PageDefault>
-        <div style={{padding: '0 13%'}}>
-          { 
-            likes.length == 0 ?
-            <>
-              <PageTitle >
-                Nenhum filme
-              </PageTitle>  
-              <EmptyPageBg imgSrc={EmptyMovie}/>  
-            </> :
-            <div style={{backgroundColor: '#f4f4f4', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0}}>
-              <PageTitle>
-                Filmes Curtidos
-              </PageTitle>
-              <ContainerSecondary>
-                <Row gutter={winWidth < 321 ? [0, 10] : winWidth < 361 ? [0, 24] : winWidth < 421 ? [0, 32] : [0, 64] } justify={ winWidth < 420 ? 'space-around' : 'space-between'} align="middle">
-                  <>
-                    {
-                      likes.slice(0).reverse().map(dislike => (
-                        <Col>
-                          <ArticleThumbnail srcImg={dislike.poster_path} onClick={winWidth < 421 ? () => handleOpenModalByMovie(dislike) : "" }>
-                            <ThumbFooter>
-                              <Row>
-                                <Col span={24}>
-                                  <ThumbTitle>
-                                    { getMovieTitle(dislike.title) }
-                                  </ThumbTitle>
-                                </Col>
-                              </Row>
-                              <Row gutter={[0, 10]} align="middle">
-                                <Col span={winWidth > 420 ? 12 : 24}>
-                                  { MovieRate(dislike.vote_average, true, '1rem') }
-                                </Col>
-                                <Col span={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
-                                  {'(' + dislike.vote_count + ' avaliações' +')'}
-                                </Col>
-                              </Row>
-                              <Row className="hideOnMobile">
-                                <Col>
-                                  { getMovieOverview(dislike.overview, dislike) }
-                                </Col>
-                              </Row>
-                            </ThumbFooter>
-                          </ArticleThumbnail>
-                        </Col>
-                      ))
-                    } 
-                  </>
-                </Row>
-              </ContainerSecondary>
-            </div>
-          }   
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+
+
+          <div style={{padding: '0 13%'}}>
+            { 
+              likes.length == 0 ?
+              <>
+                <PageTitle >
+                  Nenhum filme
+                </PageTitle>  
+                <EmptyPageBg imgSrc={EmptyMovie}/>  
+              </> :
+              <div style={{backgroundColor: '#f4f4f4', position: 'absolute', top: 0, right: 0, bottom: 0, left: 0}}>
+                <PageTitle>
+                  Filmes Curtidos
+                </PageTitle>
+                <ContainerSecondary>
+                  <Row gutter={winWidth < 321 ? [0, 10] : winWidth < 361 ? [0, 24] : winWidth < 421 ? [0, 32] : [0, 64] } justify={ winWidth < 420 ? 'space-around' : 'space-between'} align="middle">
+                    <>
+                      {
+                        likes.slice(0).reverse().map(dislike => (
+                          <Col>
+                            <ArticleThumbnail srcImg={dislike.poster_path} onClick={winWidth < 421 ? () => handleOpenModalByMovie(dislike) : "" }>
+                              <ThumbFooter>
+                                <Row>
+                                  <Col span={24}>
+                                    <ThumbTitle>
+                                      { getMovieTitle(dislike.title) }
+                                    </ThumbTitle>
+                                  </Col>
+                                </Row>
+                                <Row gutter={[0, 10]} align="middle">
+                                  <Col span={winWidth > 420 ? 12 : 24}>
+                                    { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18 ) }
+                                  </Col>
+                                  <Col span={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
+                                    {'(' + dislike.vote_count + ' avaliações' +')'}
+                                  </Col>
+                                </Row>
+                                <Row className="hideOnMobile">
+                                  <Col>
+                                    { getMovieOverview(dislike.overview, dislike) }
+                                  </Col>
+                                </Row>
+                              </ThumbFooter>
+                            </ArticleThumbnail>
+                          </Col>
+                        ))
+                      } 
+                    </>
+                  </Row>
+                </ContainerSecondary>
+              </div>
+            }   
+          </div>
+
+
         </div>
       </PageDefault>
       <>
@@ -158,7 +164,7 @@ const DislikedMovies = () => {
                   { getMovieTime(movieSelected.runtime) }
               </Row>
               <Row justify="center">
-                {MovieRate(movieSelected.vote_average, true)}
+                {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true )}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movieSelected.vote_count + ' avaliações' +')'}

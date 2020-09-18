@@ -97,13 +97,20 @@ const UnratedMovies = () => {
 
   function getMovieOverview(tagline){
     const movieTagline = winWidth < 430 ?
-    (tagline?.length > 20 ? tagline?.substr(0, 20)+"..." : tagline) :
-    (tagline?.length > 75 ? tagline?.substr(0, 75)+"..." : tagline) 
+    (tagline?.length > 25 ? tagline?.substr(0, 25)+"..." : tagline) :
+    (tagline?.length > 80 ? tagline?.substr(0, 80)+"..." : tagline) 
     
     if(tagline === ""){
       return "Sinopse não encontrada"
     } else {
-      return movieTagline
+      return(
+        <>
+          {movieTagline}       
+          <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
+            Ver Sinopse
+          </a>
+        </>
+      )
     }
   }
 
@@ -170,7 +177,7 @@ const UnratedMovies = () => {
               </Col>
               <Col span={winWidth < 420 ? 24 : 6}>
                 <Row style={winWidth < 420 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 420 ? 12 : 24}>
-                  {MovieRate(movie.vote_average, true)}
+                  {MovieRate(movie.vote_average, 24)}
                 </Row>
                 <Row style={{float: 'right'}}>
                   {'(' + movie.vote_count + ' avaliações' +')'}
@@ -178,14 +185,7 @@ const UnratedMovies = () => {
               </Col>
             </Row>
             <Row style={{margin: '.5rem 0'}}>
-              <Col span={ winWidth < 420 ? 16 : 21 }>
-                { getMovieOverview(movie.overview) }
-              </Col>
-              <Col span={ winWidth < 420 ? 8 : 3 }>
-                <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
-                  Ver Sinopse
-                </a>
-              </Col>
+              { getMovieOverview(movie.overview) }
             </Row>
           </FooterMovieOverview>
         </ArticleCard>
@@ -234,7 +234,7 @@ const UnratedMovies = () => {
                   { getMovieTime(movie.runtime) }
               </Row>
               <Row justify="center">
-                {MovieRate(movie.vote_average, true)}
+                {MovieRate(movie.vote_average, 24, true, false)}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movie.vote_count + ' avaliações' +')'}

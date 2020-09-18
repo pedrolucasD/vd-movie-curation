@@ -1,129 +1,138 @@
 import React from 'react'
-import favorite from '../../assets/icons/favorite.png'
-import favorite_ from '../../assets/icons/favorite_.png'
-
+import { 
+  AiFillHeart,
+  AiOutlineHeart
+} from 'react-icons/ai'
 import styled from 'styled-components'
 
-export const MovieRate = (rate, borderColor, mobileSize) => { 
 
-  const BorderedImage = styled.img`
-    filter: ${props => props.border == true ?  'drop-shadow(0px 0px .1rem black)' : 'none' };
+
+
+export const MovieRate = (rate, size, borderBlack, shadow) => { 
+
+  const fill = borderBlack == true ? '#000' : '#fff'
+
+  const DivShadow = styled.div`
+    filter: ${props => props.shadow == false ? 'unset' : 'drop-shadow(0px 0px .05rem black)'};
+    max-height: 24px;
 
     @media only screen and (max-width: 420px){
-      height: ${props => props.mobileSize == false ? 'unset' : props.mobileSize };
+      max-height: 1.3rem;
+      filter: unset;
     }
+    
   `
 
   const rateInt = rate -(rate%1)
   switch (rateInt) {
     case (1): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;   
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />  
+        </DivShadow>
       )
       break
       case (2): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (3): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (5): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (6): 
       return(
-        <div>
-          <BorderedImage  border={borderColor}  mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor}  mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor}  mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor}  mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor}  mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (7): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (8): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (9): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite  } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiOutlineHeart size={size} fill={fill} />
+        </DivShadow>
       )
       break
       case (10): 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />
+        </DivShadow>
       )
       break
       default: 
       return(
-        <div>
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-          <BorderedImage  border={borderColor} mobileSize={mobileSize} src={ favorite_ } />&nbsp;
-        </div>
+        <DivShadow shadow={shadow}>
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />&nbsp;
+          <AiFillHeart size={size} fill="#ff5656ff" />
+        </DivShadow>
       )
       break   
    }

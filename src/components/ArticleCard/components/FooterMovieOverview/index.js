@@ -14,6 +14,7 @@ export const FooterMovieOverview = styled.footer`
     display: flex;
     flex-direction: column;
     padding: .25rem .75rem;
+    text-shadow: unset;
     .MobileTextAlignLeft{
       text-align: left;
     }
@@ -30,5 +31,6 @@ export const MovieTitle = styled.h1`
 
   @media only screen and (max-width: 420px){
     font-size: 1.3rem;
+    text-shadow: unset;
   }
 `

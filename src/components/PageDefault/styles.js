@@ -58,15 +58,10 @@ export const Main = styled.main`
   
 
   @media only screen and (max-width: 420px){ 
-    top: 0;
+    top: 4rem;
     right: 0;
     bottom: 0;
     left: 0;  
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
   }
   
 `

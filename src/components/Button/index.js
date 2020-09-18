@@ -13,7 +13,7 @@ export const DivControls = styled(Row)`
   padding: 1.6rem;
 
   @media only screen and (max-width: 420px) {
-    position: fixed;
+    position: absolute;
     bottom: 1rem;
     padding: 0;
   }

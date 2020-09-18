@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const MobileSider = styled.nav`
   left: -100%;
   height: 100%;
-  width: 18rem;
+  width: 15rem;
   position: fixed;
   background-color: #363636;
   display: flex;
@@ -26,12 +26,12 @@ export const MobileSider = styled.nav`
   animation-fill-mode: forwards;
 
   @keyframes openSider {
-    0% {left: -18rem}
+    0% {left: -15rem}
     100% {left: 0}
   }
 
   @keyframes closeSider {
     0% {left: 0}
-    100% {left: -18rem}
+    100% {left: -15rem}
   }
 `

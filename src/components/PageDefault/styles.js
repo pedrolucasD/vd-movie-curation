@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Body = styled.body`
+  z-index: 0;
   font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: row;
@@ -44,6 +45,7 @@ export const Body = styled.body`
 `
 
 export const Main = styled.main`
+  z-index: 0;
   top: 7rem;
   bottom: 3rem;
   left: 0;

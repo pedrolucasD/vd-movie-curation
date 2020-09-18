@@ -2,6 +2,7 @@ import styled from 'styled-components'
 const urlImgApi = 'https://image.tmdb.org/t/p/w500/'
 
 export const Container = styled.main`
+  z-index: 0;
   top: 0;
   right: 0;
   bottom: 0;
@@ -16,6 +17,7 @@ export const Container = styled.main`
 `
 
 export const ImageFilter = styled.div`
+  z-index: 0;
   top: 0;
   right: 0;
   bottom: 0;
@@ -27,6 +29,7 @@ export const ImageFilter = styled.div`
 `
 
 export const ImageBG = styled.div`
+  z-index: 0;
   top: 0;
   right: 0;
   bottom: 0;
@@ -55,6 +58,7 @@ export const ImageBG = styled.div`
 `
 
 export const ContainerSecondary = styled.div`
+  z-index: 0;
   display: flex;
   flex-direction: column;
   position: absolute;

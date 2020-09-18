@@ -8,6 +8,7 @@ export const FooterMovieOverview = styled.footer`
   padding: .5rem 1.5rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
+  background: ${ props => props.srcImg == null ? 'linear-gradient(to top, rgb(0, 0, 0, .5), rgb(0, 0, 0, 0))' : 'unset' };
 
   
   @media only screen and (max-width: 420px){

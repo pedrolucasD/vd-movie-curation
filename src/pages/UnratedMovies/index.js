@@ -114,24 +114,34 @@ const UnratedMovies = () => {
     }
   }
 
-  function likeMovie(){
-    actions({type:'handleLikeMovie', payload: [...likes, { 
-      id: movie.imdb_id,
-      title: movie.title,
-      release_date: movie.release_date,
-      genres: movie.genres,
-      runtime: movie.runtime,
-      vote_average: movie.vote_average,
-      vote_count: movie.vote_count,
-      tagline: movie.tagline,
-      overview: movie.overview,
-      backdrop_path: movie.backdrop_path,
-      poster_path: movie.poster_path
-    }]})
-    nextMovie()
+  function likeMovie(movie){
+    
+    var lastArr = likes.length - 1
+
+    if (movie.imdb_id != likes[lastArr]?.id){
+      actions({type:'handleLikeMovie', payload: [...likes, { 
+        id: movie.imdb_id,
+        title: movie.title,
+        release_date: movie.release_date,
+        genres: movie.genres,
+        runtime: movie.runtime,
+        vote_average: movie.vote_average,
+        vote_count: movie.vote_count,
+        tagline: movie.tagline,
+        overview: movie.overview,
+        backdrop_path: movie.backdrop_path,
+        poster_path: movie.poster_path
+      }]})
+      nextMovie()
+    }     
   }
+  
 
   function dislikeMovie(){
+
+    var lastArr = dislikes.length - 1
+
+    if (movie.imdb_id != dislikes[lastArr]?.id){
     actions({ type:'handleDislikeMovie', payload: [...dislikes, {
       id: movie.imdb_id,
       title: movie.title,
@@ -146,6 +156,7 @@ const UnratedMovies = () => {
       poster_path: movie.poster_path
     }]})
     nextMovie()
+    }
   }
 
   return(
@@ -155,7 +166,7 @@ const UnratedMovies = () => {
       <PageDefault>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'absolute', top: '0', bottom: '6rem'}}>
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
-          <FooterMovieOverview> 
+          <FooterMovieOverview srcImg={imgPoster}> 
             <Row align="middle">
               <Col span={winWidth < 420 ? 24 : 18}>
                 <Row style={{margin: '.4 rem 0'}} >
@@ -192,7 +203,7 @@ const UnratedMovies = () => {
       </div>
         <DivControls justify="space-around">
           <Col>
-            <IconButton onClick={() => dislikeMovie()}>
+            <IconButton onClick={() => dislikeMovie(movie)}>
               <img src={DislikeIcon} style={{maxWidth: '1.8rem', marginRight: '.5rem', marginTop: '6%'}}/>
               <div className="hideOnMobile">
                 Não curti!
@@ -205,7 +216,7 @@ const UnratedMovies = () => {
             </Button>
           </Col>
           <Col>
-            <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie()}>
+            <IconButton style={{color: '#ff5656'}} onClick={() => likeMovie(movie)}>
               <img src={LikeIcon} style={{maxWidth: '1.8rem', marginRight: '.5rem', marginTop: '-6%'}}/>
               <div className="hideOnMobile">
                 Curti!

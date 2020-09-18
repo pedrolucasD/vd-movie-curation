@@ -14,16 +14,17 @@ export const ArticleThumbnail = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  box-shadow: inset 0 0 4rem rgb(0, 0, 0, 0.4);
 
   @media only screen and (max-width: 420px){
     height: 10.875rem;
     width: 9.062rem;
-    box-shadow: inset 0 0 2rem rgb(0, 0, 0, 0.4);
+    box-shadow: ${ props => props.srcImg == null ? 'unset' : 'inset 0 0 2rem rgb(0, 0, 0, 0.4)' };
+    background-size: ${ props => props.srcImg == null ? '30%' : 'cover' };
   }
 `
 
 export const ThumbFooter = styled.footer`
+  border-radius: .3rem;
   min-height: 5rem;
   width: 100%;
   bottom: 0;
@@ -31,7 +32,7 @@ export const ThumbFooter = styled.footer`
   padding: 1rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
-
+  background: linear-gradient(to top, rgb(0, 0, 0, .5), rgb(0, 0, 0, 0));
   
   @media only screen and (max-width: 420px){
     min-height: 2rem;
@@ -39,6 +40,7 @@ export const ThumbFooter = styled.footer`
     flex-direction: column;
     text-shadow: unset;
     padding: .25rem .75rem;
+    background: linear-gradient(to top, rgb(0, 0, 0, .7), rgb(0, 0, 0, 0));
     .MobileTextAlignLeft{
       text-align: left;
     }

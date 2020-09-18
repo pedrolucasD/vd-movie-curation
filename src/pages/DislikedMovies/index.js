@@ -156,7 +156,7 @@ const DislikedMovies = () => {
                   { getMovieTime(movieSelected.runtime) }
               </Row>
               <Row justify="center">
-                {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true )}
+                {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true, false )}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movieSelected.vote_count + ' avaliações' +')'}

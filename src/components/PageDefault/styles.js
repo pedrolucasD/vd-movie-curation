@@ -27,11 +27,11 @@ export const Body = styled.body`
 
     @keyframes openMenu {
       0% {left: 0}
-      100% {left: 70%}
+      100% {left: 18rem}
     }
 
     @keyframes closeMenu {
-      0% {left: 70%}
+      0% {left: 18rem}
       100% {left: 0}
     }
   }

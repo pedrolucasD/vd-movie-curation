@@ -25,7 +25,7 @@ export const ImageFilter = styled.div`
   height: 100%;
   width: 100%;
   position: fixed;
-  background: linear-gradient(225deg, #ff1c1c, #ff5656);
+  background: linear-gradient(225deg, rgb(255, 28, 28, 1), rgb(255, 86, 86, .98));
 `
 
 export const ImageBG = styled.div`
@@ -34,24 +34,22 @@ export const ImageBG = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
   position: fixed;
   display: inline-block;
   background-image: url(${ props => urlImgApi+props.srcImg });
   background-size: cover;
   background-position: center;
-  opacity: .2;
+  opacity: .15;
 
   animation: ${ props => props.fade == true ? 'fadeOut 1s' : 'fadeIn 1s'};
 
   @keyframes fadeIn {
     0% {opacity: 0}
-    100% {opacity: .2}
+    100% {opacity: .15}
   }
 
   @keyframes fadeOut {
-    0% {opacity: .2}
+    0% {opacity: .15}
     100% {opacity: 0}
   }
 

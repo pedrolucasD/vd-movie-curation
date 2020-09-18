@@ -44,15 +44,16 @@ export const Body = styled.body`
 `
 
 export const Main = styled.main`
-  top: 7.15rem;
-  bottom: 2.4rem;
+  top: 7rem;
+  bottom: 3rem;
   left: 0;
   right: 0;
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-items: center;
-  justify-content: center;
+  justify-content: space-around;
   overflow: hidden;
   
 

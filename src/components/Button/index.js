@@ -9,8 +9,8 @@ export const DivControls = styled(Row)`
   display: flex;
   flex-direction: row;
   bottom: 0;
-  position: relative;
-  padding: 1rem;
+  position: absolute;
+  padding: 1.6rem;
 
   @media only screen and (max-width: 420px) {
     position: fixed;

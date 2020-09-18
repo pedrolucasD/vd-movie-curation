@@ -146,7 +146,7 @@ const UnratedMovies = () => {
       <ImageFilter />
       <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'absolute', top: '0', bottom: '6rem'}}>
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview> 
             <Row align="middle">

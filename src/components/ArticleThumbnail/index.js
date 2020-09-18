@@ -4,8 +4,8 @@ const urlImgApi = 'https://image.tmdb.org/t/p/w500/'
 
 
 export const ArticleThumbnail = styled.div`
-  height: 24.625rem;
-  width: 21.875rem;
+  max-height: 24.625rem;
+  max-width: 21.875rem;
   background-color: #fff;
   opacity: 1;
   border-radius: .3rem;
@@ -16,13 +16,13 @@ export const ArticleThumbnail = styled.div`
   position: relative;
 
   @media only screen and (max-width: 420px){
-    height: 10.875rem;
-    width: 9.062rem;
+    max-height: 10.875rem;
+    max-width: 9.062rem;
   }
 `
 
 export const ThumbFooter = styled.footer`
-  min-height: 5rem;
+  height: 5rem;
   width: 100%;
   bottom: 0;
   position: absolute;
@@ -32,7 +32,7 @@ export const ThumbFooter = styled.footer`
 
   
   @media only screen and (max-width: 420px){
-    min-height: 2rem;
+    height: 2rem;
     display: flex;
     flex-direction: column;
     padding: .25rem .75rem;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const EmptyPageBg = styled.span`
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   top: 0;
   right: 0;

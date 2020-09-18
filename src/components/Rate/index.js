@@ -6,21 +6,21 @@ import {
 import styled from 'styled-components'
 
 
-
-
 export const MovieRate = (rate, size, borderBlack, shadow) => { 
 
   const fill = borderBlack == true ? '#000' : '#fff'
 
   const DivShadow = styled.div`
     filter: ${props => props.shadow == false ? 'unset' : 'drop-shadow(0px 0px .05rem black)'};
-    max-height: 24px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 
     @media only screen and (max-width: 420px){
-      max-height: 1.3rem;
       filter: unset;
-    }
-    
+      width: 100%;
+    }    
+
   `
 
   const rateInt = rate -(rate%1)

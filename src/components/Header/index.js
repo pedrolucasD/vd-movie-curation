@@ -11,7 +11,7 @@ export const Header = styled.header`
   text-align: center;
   background: ${props => props.bgSolid != 1 ? 'linear-gradient(225deg, #ff1c1c, #ff5656)' : 'none'};
 
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 600px){
     height: 4rem;
   }
 

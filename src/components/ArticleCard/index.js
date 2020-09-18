@@ -27,10 +27,32 @@ export const ArticleCard = styled.article`
     100% {left: 0; opacity: unset}
   }
 
-  @media only screen and (max-width: 420px){
+  .floatLeftOnDesktop{
+      float: left;
+    }
+    
+  .floatRightOnDesktop{
+    float: Right;
+  }
+
+
+  @media only screen and (max-width: 600px){
     background-size: ${ props => props.srcImg == null ? '50%' : 'cover' };
     max-width: 18.375rem;
     max-height: 21.875rem;
+
+    .fullWidthOnMobile{
+      min-width: 100%
+    }
+
+    .floatLeftOnMobile{
+      float: left;
+    }
+    
+    .floatRightOnMobile{
+      float: Right;
+    }
+
   }
 
 `

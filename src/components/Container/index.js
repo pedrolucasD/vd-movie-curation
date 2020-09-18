@@ -81,7 +81,7 @@ export const ContainerSecondary = styled.div`
     overflow: auto;
   }
   
-  @media screen and (min-width: 322px) and (max-width: 421px){
+  @media screen and (min-width: 322px) and (max-width: 641px){
     top: 4rem;
     right: 1rem;
     bottom: 0rem;
@@ -89,7 +89,7 @@ export const ContainerSecondary = styled.div`
     overflow: auto;
   }
 
-  @media screen and (min-width: 422px) and (max-width: 1361px) {
+  @media screen and (min-width: 642px) and (max-width: 1361px) {
     top: 5rem;
     left: 5rem;
     right: 5rem;

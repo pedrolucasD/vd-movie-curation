@@ -15,7 +15,7 @@ export const ArticleThumbnail = styled.div`
   background-position: center;
   position: relative;
 
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 600px){
     height: 10.875rem;
     width: 9.062rem;
     box-shadow: ${ props => props.srcImg == null ? 'unset' : 'inset 0 0 2rem rgb(0, 0, 0, 0.4)' };
@@ -35,15 +35,33 @@ export const ThumbFooter = styled.footer`
   text-shadow: 0px 0px .2rem black;
   background: linear-gradient(to top, rgb(0, 0, 0, .5), rgb(0, 0, 0, 0));
   
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 600px){
     min-height: 2rem;
     display: flex;
     flex-direction: column;
     text-shadow: unset;
     padding: .25rem .75rem;
     background: linear-gradient(to top, rgb(0, 0, 0, .7), rgb(0, 0, 0, 0));
-    .MobileTextAlignLeft{
+    position: absolute;
+
+    .textAlignLeft{
       text-align: left;
+    }
+
+    .textAlignRight{
+      text-align: right;
+    }
+
+    .fullWidthOnMobile{
+      min-width: 100%
+    }
+
+    .floatLeftOnMobile{
+      float: left;
+    }
+    
+    .floatRightOnMobile{
+      float: Right;
     }
   }
 `
@@ -56,7 +74,7 @@ export const ThumbTitle = styled.h1`
   text-shadow: 0px 0px .2rem black;
   text-transform: uppercase;
 
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 600px){
     font-size: .8rem;
     text-shadow: unset;
   }

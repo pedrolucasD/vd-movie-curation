@@ -18,7 +18,7 @@ import {
 } from '../../components/Modal'
 
 
-const DislikedMovies = () => {
+const LikedMovies = () => {
   const winWidth = window.screen.width
   const { currentPage, likes, actions } = useContext(Context)
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -79,15 +79,12 @@ const DislikedMovies = () => {
     return getYear
   }
 
-  console.log(likes)
-
   return(
     <>
       <PageDefault>
         <div style={{display: 'flex', flexDirection: 'row'}}>
 
-
-          <div style={{padding: '0 13%'}}>
+          <div style={{padding: '0 2rem'}}>
             { 
               likes.length == 0 ?
               <>
@@ -104,28 +101,28 @@ const DislikedMovies = () => {
                   <Row gutter={winWidth < 321 ? [0, 10] : winWidth < 361 ? [0, 24] : winWidth < 421 ? [0, 32] : [0, 64] } justify={ winWidth < 420 ? 'space-around' : 'space-between'} align="middle">
                     <>
                       {
-                        likes.slice(0).reverse().map(dislike => (
+                        likes.slice(0).reverse().map(like => (
                           <Col>
-                            <ArticleThumbnail srcImg={dislike.poster_path} onClick={winWidth < 421 ? () => handleOpenModalByMovie(dislike) : "" }>
+                            <ArticleThumbnail srcImg={like.poster_path} onClick={winWidth < 421 ? () => handleOpenModalByMovie(like) : "" }>
                               <ThumbFooter>
                                 <Row>
                                   <Col span={24}>
                                     <ThumbTitle>
-                                      { getMovieTitle(dislike.title) }
+                                      { getMovieTitle(like.title) }
                                     </ThumbTitle>
                                   </Col>
                                 </Row>
                                 <Row gutter={[0, 10]} align="middle">
-                                  <Col span={winWidth > 420 ? 12 : 24}>
-                                    { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18 ) }
+                                  <Col xs={21} sm={21} md={12} lg={12} xl={12}>
+                                    { MovieRate(like.vote_average, winWidth > 420 ? 24 : 18, false, false) }
                                   </Col>
-                                  <Col span={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
-                                    {'(' + dislike.vote_count + ' avaliações' +')'}
+                                  <Col xs={0} sm={0} md={12} lg={12} xl={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
+                                    {'(' + like.vote_count + ' avaliações' +')'}
                                   </Col>
                                 </Row>
                                 <Row className="hideOnMobile">
                                   <Col>
-                                    { getMovieOverview(dislike.overview, dislike) }
+                                    { getMovieOverview(like.overview, like) }
                                   </Col>
                                 </Row>
                               </ThumbFooter>
@@ -183,4 +180,4 @@ const DislikedMovies = () => {
   )
 }
 
-export default DislikedMovies
+export default LikedMovies

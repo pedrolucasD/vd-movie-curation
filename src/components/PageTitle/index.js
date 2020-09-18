@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const PageTitle = styled.h1`
+  z-index: 1;
   position: absolute;
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -15,13 +16,13 @@ export const PageTitle = styled.h1`
     left: .5rem;
   }
 
-  @media screen and (min-width: 321px) and (max-width: 420px){
+  @media screen and (min-width: 321px) and (max-width: 641px){
     font-size: 1.5rem;
     top: 1rem;
     left: 1rem;
   }
 
-  @media screen and (min-width: 421px) and (max-width: 1360px) {
+  @media screen and (min-width: 642px) and (max-width: 1360px) {
     left: 5rem;
     top: 1rem;
   }

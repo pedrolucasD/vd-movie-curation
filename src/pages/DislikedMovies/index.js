@@ -79,16 +79,14 @@ const DislikedMovies = () => {
     return getYear
   }
 
-  console.log(dislikes)
-
   return(
     <>
       <PageDefault>
-        <div style={{padding: '0 13%'}}>
+        <div style={{padding: '0 2rem'}}>
           { 
             dislikes.length == 0 ?
             <>
-              <PageTitle >
+              <PageTitle>
                 Nenhum filme
               </PageTitle>  
               <EmptyPageBg imgSrc={EmptyMovie}/>  
@@ -113,10 +111,10 @@ const DislikedMovies = () => {
                                 </Col>
                               </Row>
                               <Row gutter={[0, 10]} align="middle">
-                                <Col span={winWidth > 420 ? 12 : 24}>
-                                  { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18 ) }
+                                <Col xs={21} sm={21} md={12} lg={12} xl={12}>
+                                  { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18, false, false) }
                                 </Col>
-                                <Col span={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
+                                <Col xs={0} sm={0} md={12} lg={12} xl={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
                                   {'(' + dislike.vote_count + ' avaliações' +')'}
                                 </Col>
                               </Row>

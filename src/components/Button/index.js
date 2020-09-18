@@ -76,20 +76,20 @@ export const IconButton = styled.button`
     opacity: 0.93;
   }
 
-  @media only screen and (min-width: 320px) and (max-width: 420px) {
-    min-width: 5rem;
-    min-height: 5rem;
-    border-radius: 5rem;
-    padding: 0;
-  }
-
-  @media only screen and (max-width: 320px){
+  
+  @media only screen and (max-width: 321px){
     min-width: 4.5rem;
     min-height: 4.5rem;
     border-radius: 3rem;
     padding: 0;
   }
-
+  
+  @media only screen and (min-width: 321px) and (max-width: 640px) {
+    min-width: 5rem;
+    min-height: 5rem;
+    border-radius: 5rem;
+    padding: 0;
+  }
 ` 
 
 export const HeaderButtom = styled(Link)`

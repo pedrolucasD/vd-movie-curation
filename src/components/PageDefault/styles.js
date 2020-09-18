@@ -13,15 +13,12 @@ export const Body = styled.body`
   left: 0;
   background: unset;
   /* height: 100%; */
-  position: absolute;
+  position: fixed;
 
-  @media only screen and (max-width: 420px){
+  @media only screen and (max-width: 640px){
     .hideOnMobile{
       display: none;
     }
-
-    position: fixed;
-    overflow: hidden;
 
     animation: ${ props => props.openMenu == true ? 'openMenu .4s' : props.openMenu == false ? 'closeMenu .4s' : 'unset' };
     animation-fill-mode: forwards;
@@ -37,7 +34,7 @@ export const Body = styled.body`
     }
   }
 
-  @media only screen and (min-width: 420px){
+  @media only screen and (min-width: 640px){
     .hideOnDesktop{
       display: none;
     }
@@ -59,7 +56,7 @@ export const Main = styled.main`
   overflow: hidden;
   
 
-  @media only screen and (max-width: 420px){ 
+  @media only screen and (max-width: 640px){ 
     top: 4rem;
     right: 0;
     bottom: 0;

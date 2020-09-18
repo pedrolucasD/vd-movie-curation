@@ -96,7 +96,7 @@ const UnratedMovies = () => {
 
 
   function getMovieOverview(tagline){
-    const movieTagline = winWidth < 430 ?
+    const movieTagline = winWidth < 720 ?
     (tagline?.length > 25 ? tagline?.substr(0, 25)+"..." : tagline) :
     (tagline?.length > 80 ? tagline?.substr(0, 80)+"..." : tagline) 
     
@@ -104,12 +104,12 @@ const UnratedMovies = () => {
       return "Sinopse não encontrada"
     } else {
       return(
-        <>
+        <div>
           {movieTagline}       
-          <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
+          <a style={{color: '#ff5656', textDecoration: 'underline'}} onClick={() => setModalIsOpen(true)}>
             Ver Sinopse
           </a>
-        </>
+        </div>
       )
     }
   }
@@ -168,7 +168,7 @@ const UnratedMovies = () => {
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
           <FooterMovieOverview srcImg={imgPoster}> 
             <Row align="middle">
-              <Col span={winWidth < 420 ? 24 : 18}>
+              <Col span={winWidth > 720 ? 18 : 24} className="fullWidthOnMobile">
                 <Row style={{margin: '.4 rem 0'}} >
                   <Col span={24}>
                     <MovieTitle>
@@ -186,11 +186,11 @@ const UnratedMovies = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col span={winWidth < 420 ? 24 : 6}>
-                <Row style={winWidth < 420 ? {float: 'left', marginRight: '-.3rem'} : {float: 'right'}} span={winWidth < 420 ? 12 : 24}>
+              <Col span={winWidth < 420 ? 24 : 6} className="fullWidthOnMobile">
+                <Row className="floatLeftOnMobile floatRightOnDesktop" span={winWidth < 420 ? 12 : 24}>
                   {MovieRate(movie.vote_average, 24)}
                 </Row>
-                <Row style={{float: 'right'}}>
+                <Row className="floatRightOnMobile floatRightOnDesktop">
                   {'(' + movie.vote_count + ' avaliações' +')'}
                 </Row>
               </Col>

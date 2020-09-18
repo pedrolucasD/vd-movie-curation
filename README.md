@@ -55,6 +55,7 @@ http://localhost:3000/
 - [x] Tela listagem de filmes não curtidos
 - [x] Tela listagem de filmes curtidos
 - [x] Responsividade mobile
+- [ ] Migrar API de V3 para V4
 - [ ] Configurar ESLint
 - [ ] Revisar responsividade e refatorar
 

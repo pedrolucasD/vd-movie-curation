@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
 import useGlobalState from './store/useGlobalState'
 import Context from './store/context'
+import './App.css'  
 
 
 const Index = () => {

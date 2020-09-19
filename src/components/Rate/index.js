@@ -14,6 +14,7 @@ export const MovieRate = (rate, size, borderBlack, shadow) => {
     filter: ${props => props.shadow == false ? 'unset' : 'drop-shadow(0px 0px .05rem black)'};
     display: flex;
     flex-direction: row;
+    justify-content: center;
     position: relative;
 
     @media only screen and (max-width: 420px){

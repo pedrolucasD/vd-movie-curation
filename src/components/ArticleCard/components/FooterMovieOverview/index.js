@@ -5,7 +5,7 @@ export const FooterMovieOverview = styled.footer`
   width: 100%;
   bottom: 0;
   position: absolute;
-  padding: .5rem 1.5rem;
+  padding: 1rem;
   color: #fff;
   text-shadow: 0px 0px .2rem black;
   background: ${ props => props.srcImg == null ? 'linear-gradient(to top, rgb(0, 0, 0, .5), rgb(0, 0, 0, 0))' : 'unset' };
@@ -14,7 +14,7 @@ export const FooterMovieOverview = styled.footer`
   @media only screen and (max-width: 600px){
     display: flex;
     flex-direction: column;
-    padding: .25rem .75rem;
+    padding: .5rem;
     text-shadow: unset;
     .MobileTextAlignLeft{
       text-align: left;

@@ -97,6 +97,10 @@ export const ModalContent = styled.div`
     min-width: 95%;
     padding: 2rem 2rem;
   }
+
+  @media only screen and (max-width: 840px){
+    background: linear-gradient(to bottom, #ff5656 6rem, #fff 0);
+  }
 ` 
 
 export const ModalMovieTitle = styled.h1`

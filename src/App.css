@@ -1,0 +1,56 @@
+/* START DESKTOP GLOBAL CLASSES */
+@media screen and (min-width: 761px) {
+
+  .standard-row-padding{
+    padding: .1rem;
+  }
+
+  .fl-lft-desk{
+    float: left;
+  }
+
+  .fl-rgt-desk{
+    float: right;
+  }
+  
+}
+/* END DESKTOP GLOBAL CLASSES */
+
+
+/* START MOBILE GLOBAL CLASSES */
+@media screen and (max-width: 760px) {
+  
+
+  .fl-lft-mobi{
+    float: left;
+  }
+
+  .fl-rgt-mobi{
+    float: right;
+  }
+  
+
+ 
+}
+/* END MOBILE GLOBAL CLASSES */
+
+
+@media screen and (min-width: 641px) and (max-width: 840px) {
+
+  .standard-row-padding{
+    padding: .05rem;
+  }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+
+
+  .standard-row-padding{
+    padding: .025rem;
+  }
+
+  
+
+}

@@ -165,41 +165,50 @@ const UnratedMovies = () => {
       <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'absolute', top: '0', bottom: '6rem'}}>
+        
+
+
         <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
-          <FooterMovieOverview srcImg={imgPoster}> 
-            <Row align="middle">
-              <Col span={winWidth > 720 ? 18 : 24} className="fullWidthOnMobile">
-                <Row style={{margin: '.4 rem 0'}} >
-                  <Col span={24}>
+          <FooterMovieOverview srcImg={imgPoster}>
+            <Row span={24} align="middle" className="standard-row-padding">
+              <Col md={18} lg={18}>
+                <Col span={24}>
+                  <Row>
                     <MovieTitle>
-                      {
-                        getMovieTitle(movie.title)
-                      }
+                      {getMovieTitle(movie.title)}
                     </MovieTitle>
-                  </Col>
-                </Row>
-                <Row className="hideOnMobile">
-                  <Col span={24} style={{textTransform: 'uppercase'}}>
+                  </Row>
+                </Col>
+                <Col xs={0} sm={0} md={24} lg={24}>
+                  <Row style={{textTransform: 'uppercase'}}>
                     { getMovieYear(movie.release_date) }&nbsp;•&nbsp; 
                     { getGenres(movie.genres) }&nbsp;•&nbsp;
                     { getMovieTime(movie.runtime) }
-                  </Col>
-                </Row>
+                  </Row>
+                </Col>
               </Col>
-              <Col span={winWidth < 420 ? 24 : 6} className="fullWidthOnMobile">
-                <Row className="floatLeftOnMobile floatRightOnDesktop" span={winWidth < 420 ? 12 : 24}>
-                  {MovieRate(movie.vote_average, 24)}
-                </Row>
-                <Row className="floatRightOnMobile floatRightOnDesktop">
-                  {'(' + movie.vote_count + ' avaliações' +')'}
-                </Row>
+              <Col xs={24} sm={24} md={6} lg={6}>
+                <Col xs={12} sm={12} md={24} lg={24} className="fl-rgt-desk fl-lft-mobi">
+                  <Row>
+                    {MovieRate(movie.vote_average, 24)}
+                  </Row>
+                </Col>
+                <Col xs={12} sm={12} md={24} lg={24} className="fl-rgt-desk fl-rgt-mobi">
+                  <Row>
+                    { '(' + movie.vote_count + ' avaliações' +')' }
+                  </Row>
+                </Col>
               </Col>
             </Row>
-            <Row style={{margin: '.5rem 0'}}>
-              { getMovieOverview(movie.overview) }
+            <Row span={24} className="standard-row-padding">
+              <Col lg={24}>
+                { getMovieOverview(movie.overview) }
+              </Col>
             </Row>
           </FooterMovieOverview>
         </ArticleCard>
+
+
       </div>
         <DivControls justify="space-around">
           <Col>

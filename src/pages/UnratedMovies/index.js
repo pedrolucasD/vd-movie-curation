@@ -1,27 +1,16 @@
-import React, {
-  useEffect,
-  useState,
-  useContext
-} from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Context from '../../store/context'
 import api from '../../services/api'
 import PageDefault from '../../components/PageDefault'
 import { ImageBG, ImageFilter } from '../../components/Container'
-import { ArticleCard } from '../../components/ArticleCard'
-import { FooterMovieOverview, MovieTitle } from '../../components/ArticleCard/components/FooterMovieOverview'
+import { MovieCard, FooterMovieCard, FooterMovieTitle } from '../../components/MovieCard'
 import { Row, Col } from 'antd'
 import { MovieRate } from '../../components/Rate/index'
 import { DivControls, IconButton, Button } from '../../components/Button'
 import { Thumbnail } from '../../components/Thumbnail'
+import { Modal, ModalCloseButton, ModalAlpha, ModalContent, ModalMovieTitle } from '../../components/Modal'
 import LikeIcon from '../../assets/icons/curti.png'
 import DislikeIcon from '../../assets/icons/n-curti.png'
-import { 
-  Modal,
-  ModalCloseButton,
-  ModalAlpha,
-  ModalContent,
-  ModalMovieTitle
-} from '../../components/Modal'
 
 const apiKey = '?&api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 
@@ -165,18 +154,15 @@ const UnratedMovies = () => {
       <ImageBG srcImg={imgBg} fade={slideAnimate}/>
       <PageDefault>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'absolute', top: '0', bottom: '6rem'}}>
-        
-
-
-        <ArticleCard srcImg={imgPoster} style={{margin: '1rem'}} slide={slideAnimate}>
-          <FooterMovieOverview srcImg={imgPoster}>
+        <MovieCard srcImg={imgPoster} slide={slideAnimate}>
+          <FooterMovieCard srcImg={imgPoster}>
             <Row span={24} align="middle" className="standard-row-padding">
               <Col md={18} lg={18}>
                 <Col span={24}>
                   <Row>
-                    <MovieTitle>
+                    <FooterMovieTitle>
                       {getMovieTitle(movie.title)}
-                    </MovieTitle>
+                    </FooterMovieTitle>
                   </Row>
                 </Col>
                 <Col xs={0} sm={0} md={24} lg={24}>
@@ -205,10 +191,8 @@ const UnratedMovies = () => {
                 { getMovieOverview(movie.overview) }
               </Col>
             </Row>
-          </FooterMovieOverview>
-        </ArticleCard>
-
-
+          </FooterMovieCard>
+        </MovieCard>
       </div>
         <DivControls justify="space-around">
           <Col>

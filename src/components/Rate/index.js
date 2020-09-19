@@ -17,7 +17,7 @@ export const MovieRate = (rate, size, borderBlack, shadow) => {
     justify-content: center;
     position: relative;
 
-    @media only screen and (max-width: 420px){
+    @media only screen and (max-width: 644px){
       filter: unset;
       width: 100%;
     }    

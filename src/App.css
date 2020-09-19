@@ -1,5 +1,5 @@
 /* START DESKTOP GLOBAL CLASSES */
-@media screen and (min-width: 761px) {
+@media screen and (min-width: 760px) {
 
   .standard-row-padding{
     padding: .1rem;
@@ -12,6 +12,19 @@
   .fl-rgt-desk{
     float: right;
   }
+
+  .jc-lft-desk{
+    justify-content: left;
+  }
+
+  .jc-rgt-desk{
+    justify-content: right;
+  }
+
+  .jc-cen-desk{
+    justify-content: center;
+  }
+  
   
 }
 /* END DESKTOP GLOBAL CLASSES */
@@ -27,6 +40,18 @@
 
   .fl-rgt-mobi{
     float: right;
+  }
+
+  .jc-lft-mobi{
+    justify-content: left;
+  }
+
+  .jc-rgt-mobi{
+    justify-content: right;
+  }
+
+  .jc-cen-mobi{
+    justify-content: center;
   }
   
 

@@ -160,8 +160,10 @@ const LikedMovies = () => {
                   { getGenres(movieSelected.genres) }&nbsp;•&nbsp;
                   { getMovieTime(movieSelected.runtime) }
               </Row>
-              <Row justify="center">
-                {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true, false )}
+              <Row justify="center" className="jc-lft-mobi">
+                <div>
+                  {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true, false )}
+                </div>
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
                 {'(' + movieSelected.vote_count + ' avaliações' +')'}

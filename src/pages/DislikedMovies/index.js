@@ -155,7 +155,7 @@ const DislikedMovies = () => {
                   { getGenres(movieSelected.genres) }&nbsp;•&nbsp;
                   { getMovieTime(movieSelected.runtime) }
               </Row>
-              <Row justify="center">
+              <Row className="jc-cen">
                 {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true, false )}
               </Row>
               <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>

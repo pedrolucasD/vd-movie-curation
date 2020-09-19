@@ -79,3 +79,26 @@
   
 
 }
+
+.fl-lft{
+  float: left;
+}
+
+.fl-rgt{
+  float: right;
+}
+
+
+.jc-lft{
+  justify-content: left;
+}
+
+.jc-rgt{
+  justify-content: right;
+}
+
+.jc-cen{
+  justify-content: center;
+}
+
+

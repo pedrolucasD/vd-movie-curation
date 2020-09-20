@@ -5,6 +5,7 @@ const useGlobalState = () => {
   const [likes, setLikes] = useState([]) 
   const [dislikes, setDislikes] = useState([]) 
   const [currentPage, setCurrentPage] = useState(0) 
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
 
   const actions = (action) => {
@@ -18,11 +19,13 @@ const useGlobalState = () => {
         return setDislikes(payload)
       case 'handleSetCurrentPage':
         return setCurrentPage(payload)
+      case 'handleSetModalIsOpen':
+        return setModalIsOpen(payload)
       default:
         return null
     }
   }
-  return {movieNumber, likes, dislikes, actions, currentPage}
+  return {movieNumber, likes, dislikes, actions, currentPage, modalIsOpen}
 }
 
 export default useGlobalState

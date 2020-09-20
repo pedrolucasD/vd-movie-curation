@@ -237,13 +237,13 @@ const UnratedMovies = () => {
                   { getGenres(movie.genres) }&nbsp;•&nbsp;
                   { getMovieTime(movie.runtime) }
               </Row>
-              <Row justify="center">
-                {MovieRate(movie.vote_average, 24, true, false)}
-              </Row>
-              <Row className="jc-cen" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
+              <Row className="jc-cen">
                 <div>
-                  {'(' + movie.vote_count + ' avaliações' +')'}
+                  {MovieRate(movie.vote_average, 24, true, false)}
                 </div>
+              </Row>
+              <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
+                {'(' + movie.vote_count + ' avaliações' +')'}
               </Row>
               <Row 
                 justify="left" style={winWidth <= 320 ? {maxHeight: '8rem', maxWidth: '100%', overflow: 'auto'} : winWidth <= 420 ? {maxHeight: '13rem', maxWidth: '100%', overflow: 'auto'} : {overflow: 'auto'}}>

@@ -29,10 +29,10 @@ export function getFormatedMovieTitle(title){
   return movieTitle
 }
 
-export function getFormatedOverview(overview){
+export function getFormatedOverview(overview, mobileOverviewMaxLength, desktopOverviewMaxLenght){
   const movieOverview = winWidth < 720 ?
-  (overview?.length > 25 ? overview?.substr(0, 25)+"..." : overview) :
-  (overview?.length > 80 ? overview?.substr(0, 80)+"..." : overview) 
+  (overview?.length > mobileOverviewMaxLength ? overview?.substr(0, mobileOverviewMaxLength)+"..." : overview) :
+  (overview?.length > desktopOverviewMaxLenght ? overview?.substr(0, desktopOverviewMaxLenght)+"..." : overview) 
   
   if(overview === ""){
     return true

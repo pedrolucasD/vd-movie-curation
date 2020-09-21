@@ -7,6 +7,7 @@ import {
   getFormatedGenres,
   getFormatedMovieTime,
   getFormatedMovieYear,
+  getFormatedOverview
 } from '../../components/CommonFunctions'
 import { MovieRate } from '../../components/Rate'
 
@@ -47,8 +48,8 @@ const Modal = (props) => {
           {'(' + movie.vote_count + ' avaliações' +')'}
         </Row>
         <OverviewRow>
-          {movie.overview}
-        </OverviewRow>
+          {movie.overview == "" ? "Sinopse não encontrada" : movie.overview}
+        </OverviewRow> 
       </ModalContent>
     </ModalStyle>
     </>

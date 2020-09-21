@@ -9,13 +9,12 @@ import { ContainerSecondary } from '../../components/Container'
 import { ArticleThumbnail, ThumbFooter, ThumbTitle } from '../../components/ArticleThumbnail'
 import { MovieRate } from '../../components/Rate'
 import Modal from '../../components/Modal'
-import { getFormatedMovieTitle } from '../../components/CommonFunctions'
+import { getFormatedMovieTitle, getFormatedOverview } from '../../components/CommonFunctions'
 
 const DislikedMovies = () => {
   const winWidth = window.screen.width
   const { modalIsOpen, dislikes, actions } = useContext(Context)
   const [movieSelected, setMovieSelected] = useState([])
-
   const imgPoster = movieSelected.poster_path
   
   useEffect(() => {
@@ -29,25 +28,6 @@ const DislikedMovies = () => {
 
   function handleOpenModal(boolean){
     actions({type: 'handleSetModalIsOpen', payload: boolean})
-  }
-
-  function getMovieOverview(tagline, movie){
-    const movieTagline = winWidth < 430 ?
-    (tagline?.length > 10 ? tagline?.substr(0, 10)+"..." : tagline) :
-    (tagline?.length > 30 ? tagline?.substr(0, 30)+"..." : tagline) 
-    
-    if(tagline === ""){
-      return "Sinopse não encontrada"
-    } else {
-      return(
-        <>
-          {movieTagline}
-          <a style={{float: 'right', color: '#ff5656', textDecoration: 'underline'}} onClick={() => handleOpenModalByMovie(movie)}>
-            Ver Sinopse
-          </a>
-        </>
-      )
-    }
   }
 
   return(
@@ -67,12 +47,15 @@ const DislikedMovies = () => {
                 Filmes não curtidos
               </PageTitle>
               <ContainerSecondary>
-                <Row gutter={winWidth < 321 ? [0, 10] : winWidth < 361 ? [0, 24] : winWidth < 421 ? [0, 32] : [0, 64] } justify={ winWidth < 420 ? 'space-around' : 'space-between'} align="middle">
+                <Row gutter={winWidth < 321 ? [0, 10] : winWidth < 361 ? [0, 24] : winWidth < 421 ? [0, 32] : [0, 64] }
+                  justify={ winWidth < 420 ? 'space-around' : 'space-between'} align="middle">
                   <>
                     {
                       dislikes.slice(0).reverse().map(dislike => (
                         <Col>
-                          <ArticleThumbnail srcImg={dislike.poster_path} onClick={winWidth < 421 ? () => handleOpenModalByMovie(dislike) : "" }>
+                          <ArticleThumbnail 
+                            srcImg={dislike.poster_path}
+                            onClick={winWidth < 421 ? () => handleOpenModalByMovie(dislike) : ""}>
                             <ThumbFooter>
                               <Row>
                                 <Col span={24}>
@@ -85,14 +68,21 @@ const DislikedMovies = () => {
                                 <Col xs={21} sm={21} md={12} lg={12} xl={12}>
                                   { MovieRate(dislike.vote_average, winWidth > 420 ? 24 : 18, false, false) }
                                 </Col>
-                                <Col xs={0} sm={0} md={12} lg={12} xl={12} style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}} className="hideOnMobile">
+                                <Col xs={0} sm={0} md={12} lg={12} xl={12}
+                                  style={{textAlign: 'right', margin: '0', fontSize: '.8rem'}}
+                                  className="hideOnMobile">
                                   {'(' + dislike.vote_count + ' avaliações' +')'}
                                 </Col>
                               </Row>
                               <Row className="hideOnMobile">
-                                <Col>
-                                  { getMovieOverview(dislike.overview, dislike) }
-                                </Col>
+                                <div>
+                                  { getFormatedOverview(dislike.overview) == true ? "Sinopse não encontrada" : getFormatedOverview(dislike.overview, 10, 30) }
+                                  <a hidden={getFormatedOverview(dislike.overview) == true ? true : false}
+                                    style={{color: '#ff5656', textDecoration: 'underline'}}
+                                    onClick={() => handleOpenModalByMovie(dislike)}>
+                                    Ver Sinopse
+                                  </a>
+                                </div>
                               </Row>
                             </ThumbFooter>
                           </ArticleThumbnail>

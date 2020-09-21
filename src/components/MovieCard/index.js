@@ -58,7 +58,7 @@ const MovieCard = (props) => {
           <Row span={24} className="standard-row-padding">
             <Col lg={24}>
               <div>
-                { getFormatedOverview(movie.overview) == true ? "Sinopse não encontrada" : getFormatedOverview(movie.overview) }
+                { getFormatedOverview(movie.overview) == true ? "Sinopse não encontrada" : getFormatedOverview(movie.overview, 25, 80) }
                 <a hidden={getFormatedOverview(movie.overview) == true ? true : false}
                   style={{color: '#ff5656', textDecoration: 'underline'}}
                   onClick={() => actions({type:'handleSetModalIsOpen', payload: true})}

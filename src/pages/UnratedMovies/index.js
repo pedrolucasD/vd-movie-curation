@@ -11,10 +11,8 @@ import Modal from '../../components/Modal'
 import LikeIcon from '../../assets/icons/curti.svg'
 import DislikeIcon from '../../assets/icons/n-curti.svg'
 
-const apiKey = '?&api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
-
 const UnratedMovies = () => {
-  const { movieNumber, likes, dislikes, modalIsOpen, actions } = useContext(Context)
+  const { movieNumber, likes, dislikes, modalIsOpen, apiKey, actions } = useContext(Context)
   const [movie, setMovie] = useState([])
   const [slideAnimate, setSlideAnimate] = useState(false)
   const imgPoster = movie.poster_path

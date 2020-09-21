@@ -6,6 +6,7 @@ const useGlobalState = () => {
   const [dislikes, setDislikes] = useState([]) 
   const [currentPage, setCurrentPage] = useState(0) 
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const apiKey = '?&api_key=97e4b05e62f59396b9df37e305734e91&language=pt-BR'
 
 
   const actions = (action) => {
@@ -25,7 +26,7 @@ const useGlobalState = () => {
         return null
     }
   }
-  return {movieNumber, likes, dislikes, actions, currentPage, modalIsOpen}
+  return {movieNumber, likes, dislikes, actions, currentPage, modalIsOpen, apiKey}
 }
 
 export default useGlobalState

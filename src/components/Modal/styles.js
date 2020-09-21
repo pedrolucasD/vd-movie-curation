@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Row } from 'antd'
 
 export const ModalStyle = styled.div`
   position: absolute;
@@ -119,6 +120,15 @@ export const ModalMovieTitle = styled.h1`
   @media only screen and (max-width: 320px){
     font-size: 1rem;
     line-height: 1.2;
+  }
+
+`
+
+export const OverviewRow = styled(Row)`
+
+  @media only screen and (max-width: 644px){
+    max-height: 9rem;
+    overflow: auto;
   }
 
 `

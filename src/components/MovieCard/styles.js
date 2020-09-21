@@ -37,6 +37,7 @@ export const Card = styled.article`
   
 `
 export const CardFooter = styled.footer`
+  border-radius: .25rem;
   position: absolute;
   width: 100%;
   bottom: 0;

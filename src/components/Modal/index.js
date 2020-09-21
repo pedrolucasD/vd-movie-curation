@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Context from '../../store/context'
 import { Row, Col } from 'antd'
-import { ModalStyle, ModalCloseButton, ModalAlpha, ModalContent, ModalMovieTitle } from './styles'
+import { ModalStyle, ModalCloseButton, ModalAlpha, ModalContent, ModalMovieTitle, OverviewRow } from './styles'
 import { Thumbnail } from '../../components/Thumbnail'
 import { 
   getFormatedGenres,
@@ -18,7 +18,7 @@ const Modal = (props) => {
   function handleOpenModal(boolean){
     actions({type: 'handleSetModalIsOpen', payload: boolean})
   }
-  
+
   return(
     <>
     <ModalStyle>
@@ -46,9 +46,9 @@ const Modal = (props) => {
         <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
           {'(' + movie.vote_count + ' avaliações' +')'}
         </Row>
-        <Row>
+        <OverviewRow>
           {movie.overview}
-        </Row>
+        </OverviewRow>
       </ModalContent>
     </ModalStyle>
     </>

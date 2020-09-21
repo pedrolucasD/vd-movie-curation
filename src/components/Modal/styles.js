@@ -17,13 +17,13 @@ export const ModalStyle = styled.div`
 
 
   @media only screen and (max-width: 600px){
-    padding: .5rem 1.5rem;
+    padding: 1.5rem 1.5rem;
     height: 100%;
     position: fixed;
   }
 
   @media only screen and (max-width: 320px){
-    padding: 1rem;
+    padding: 1.5rem 1.5rem;
     height: 100%;
     position: absolute;
   }
@@ -87,15 +87,15 @@ export const ModalContent = styled.div`
   
   @media only screen and (max-width: 320px){
     top: 0;
-    max-height: 95%;
+    max-height: 100%;
     width: 100%;
     /* min-height: 20rem; */
   }
 
   @media only screen and (min-width: 320px) and (max-width: 420px){
     top: 0;
-    max-height: 95%;
-    min-width: 95%;
+    max-height: 100%;
+    min-width: 100%;
     padding: 2rem 2rem;
   }
 

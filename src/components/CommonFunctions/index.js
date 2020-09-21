@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../../store/context'
 
 const winWidth = window.screen.width
+
 
 export function getFormatedGenres(genres){
   const getMovieGenres = genres?.map(genre => 

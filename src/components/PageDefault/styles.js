@@ -42,6 +42,7 @@ export const Body = styled.body`
 `
 
 export const Main = styled.main`
+
   z-index: 0;
   top: 7rem;
   bottom: 3rem;
@@ -49,7 +50,7 @@ export const Main = styled.main`
   right: 0;
   position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-items: center;
   justify-content: space-around;

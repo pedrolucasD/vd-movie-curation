@@ -24,6 +24,10 @@
   .jc-cen-desk{
     justify-content: center;
   }
+
+  .dy-non-desk{
+    display: none;
+  }
   
   
 }
@@ -52,6 +56,10 @@
 
   .jc-cen-mobi{
     justify-content: center;
+  }
+
+  .dy-non-mobi{
+    display: none;
   }
   
 
@@ -101,4 +109,7 @@
   justify-content: center;
 }
 
+.dy-non{
+  display: none;
+}
 

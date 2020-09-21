@@ -51,47 +51,6 @@ export const Button = styled.button`
 
 ` 
 
-export const IconButton = styled.button`
-  border: none;
-  cursor: pointer;
-  outline: inherit;
-
-  margin: 0 1rem;  
-  text-align: center;
-  height: 4rem;
-  width: fit-content;
-  border-radius: 4rem;
-  min-width: 12rem;
-  background-color: #FFF;
-  
-  text-transform: uppercase;
-  font-weight: 400;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  padding: 1rem;
-  justify-content: center;
-
-  :active {
-    opacity: 0.93;
-  }
-
-  
-  @media only screen and (max-width: 321px){
-    min-width: 4.5rem;
-    min-height: 4.5rem;
-    border-radius: 3rem;
-    padding: 0;
-  }
-  
-  @media only screen and (min-width: 321px) and (max-width: 640px) {
-    min-width: 5rem;
-    min-height: 5rem;
-    border-radius: 5rem;
-    padding: 0;
-  }
-` 
-
 export const HeaderButtom = styled(Link)`
 	background: none;
 	color: #fff;

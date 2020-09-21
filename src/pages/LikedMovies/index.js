@@ -8,23 +8,19 @@ import { EmptyPageBg } from '../../components/EmptyPageBg'
 import { ContainerSecondary } from '../../components/Container'
 import { ArticleThumbnail, ThumbFooter, ThumbTitle } from '../../components/ArticleThumbnail'
 import { MovieRate } from '../../components/Rate'
-import { Thumbnail } from '../../components/Thumbnail'
-import { 
-  Modal,
-  ModalCloseButton,
-  ModalAlpha,
-  ModalContent,
-  ModalMovieTitle
-} from '../../components/Modal'
-
+import Modal from '../../components/Modal'
+import { getFormatedMovieTitle } from '../../components/CommonFunctions'
 
 const LikedMovies = () => {
   const winWidth = window.screen.width
-  const { currentPage, likes, actions } = useContext(Context)
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const { modalIsOpen, likes, actions } = useContext(Context)
   const [movieSelected, setMovieSelected] = useState([])
 
   const imgPoster = movieSelected.poster_path
+
+  function handleOpenModal(boolean){
+    actions({type: 'handleSetModalIsOpen', payload: boolean})
+  }
   
   useEffect(() => {
     actions({type:'handleSetCurrentPage', payload: 2})
@@ -32,7 +28,7 @@ const LikedMovies = () => {
   
   function handleOpenModalByMovie(movie){
     setMovieSelected(movie)
-    setModalIsOpen(true)
+    handleOpenModal(true)
   }
 
   function getMovieOverview(tagline, movie){
@@ -52,31 +48,6 @@ const LikedMovies = () => {
         </>
       )
     }
-  }
-
-  function getMovieTitle(title){
-    const movieTitle = title?.length > 20 ? title?.substr(0, 20)+"..." : title
-    return movieTitle
-  }
-
-  function getMovieTime(movieTime){
-    const durationTime = new Date('2020-01-01 00:00:00')
-    const hours = new Date(durationTime.setMinutes(durationTime.getMinutes() + (movieTime)))
-    const formatedHours = hours.getHours()+'H '+hours.getMinutes()+'M'
-    return formatedHours
-  }
-
-  function getGenres(genres){
-    const getMovieGenres = genres?.map(genre => 
-      ( genre.name !== movieSelected.genres[movieSelected.genres.length -1].name ?
-        genre.name + '/' :
-        genre.name ))
-    return getMovieGenres
-  }
-
-  function getMovieYear(year){
-    const getYear = year?.substr(0, 4)
-    return getYear
   }
 
   return(
@@ -108,7 +79,7 @@ const LikedMovies = () => {
                                 <Row>
                                   <Col span={24}>
                                     <ThumbTitle>
-                                      { getMovieTitle(like.title) }
+                                      { getFormatedMovieTitle(like.title) }
                                     </ThumbTitle>
                                   </Col>
                                 </Row>
@@ -136,48 +107,11 @@ const LikedMovies = () => {
               </div>
             }   
           </div>
-
-
         </div>
       </PageDefault>
-      <>
       {/* START MODAL OVERVIEW */}
-      { modalIsOpen ? (
-          <Modal>
-            <ModalAlpha onClick={() => setModalIsOpen(false)} />
-            <ModalContent>
-              <ModalCloseButton onClick={() => setModalIsOpen(false)}>x</ModalCloseButton>
-              <Row justify="center">
-                <Thumbnail srcImg={imgPoster} />
-              </Row>
-              <Row justify="center" style={{marginTop: '1rem'}}>
-                <ModalMovieTitle style={winWidth < 420 ? {maxHeight: '5rem', overflow: 'auto'} : {overflow: 'auto'}}>
-                  { movieSelected.title }
-                </ModalMovieTitle>
-              </Row>
-              <Row justify="center" style={{textAlign: 'center', textTransform: 'uppercase', marginBottom: '1rem', color: '#808080', fontSize: '.8rem', maxWidth: '100%'}}>
-                  { getMovieYear(movieSelected.release_date) }&nbsp;•&nbsp; 
-                  { getGenres(movieSelected.genres) }&nbsp;•&nbsp;
-                  { getMovieTime(movieSelected.runtime) }
-              </Row>
-              <Row className="jc-cen">
-                <div>
-                  {MovieRate(movieSelected.vote_average, winWidth > 420 ? 24 : 18, true, false )}
-                </div>
-              </Row>
-              <Row justify="center" style={{fontSize: '.7rem', marginBottom: '1rem'}}>
-                {'(' + movieSelected.vote_count + ' avaliações' +')'}
-              </Row>
-              <Row 
-                justify="left" style={winWidth <= 320 ? {maxHeight: '8rem', maxWidth: '100%', overflow: 'auto'} : winWidth <= 420 ? {maxHeight: '13rem', maxWidth: '100%', overflow: 'auto'} : {overflow: 'auto'}}>
-                { movieSelected.overview == "" ? "Sinopse não encontrada" : movieSelected.overview }
-              </Row>
-            </ModalContent>
-          </Modal>    
-        )
-      : null } 
+      { modalIsOpen ? ( <Modal imgPoster={imgPoster}>{ movieSelected }</Modal> ) : null } 
       {/* END MODAL OVERVIEW */}
-    </>
     </>
   )
 }
